@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "Random Grotesque";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("./fonts/GPN_DIN-Bold.ttf") format("truetype");
-}
-
 body {
   font-family: "Onest", sans-serif;
   background-color: #070808;
@@ -22,7 +14,7 @@ a {
 h1 {
   font-family: Random Grotesque;
   font-weight: 750;
-  font-size: 70px;
+  font-size: 92px;
   line-height: 80%;
   letter-spacing: -4%;
 }
@@ -465,7 +457,7 @@ h3 {
   text-align: center;
   margin: 0 auto;
   margin-bottom: 80px;
-  max-width: 1260px;
+  max-width: 1290px;
 }
 
 .serv__title img {
@@ -512,9 +504,10 @@ h3 {
   padding: 240px 0;
   background-image: url(./img/team-gradient1.png);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0% 23%;
+  background-size: contain;
+  background-position: 0% 0%;
 }
+
 .team__title {
   text-align: center;
   max-width: 1339px;
@@ -605,4 +598,209 @@ h3 {
 .text-18 {
 }
 .team__description {
+}
+
+.rewies {
+  padding-bottom: 286px;
+  background-image: url(./img/rewiews-gradient1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0% 64%;
+}
+.rewies__title {
+  margin: 0 auto;
+  margin-bottom: 150px;
+  text-align: center;
+  max-width: 901px;
+}
+.rewies__title img {
+  margin-top: 10px;
+}
+
+.rewies__row {
+  display: flex;
+}
+.rewies__row:nth-child(1) {
+  justify-content: center;
+}
+.rewies__row:nth-child(2) {
+  margin-top: 135px;
+  justify-content: flex-start;
+}
+.rewies__row:nth-child(3) {
+  margin-top: -218px;
+  justify-content: flex-end;
+}
+.rewies__row:nth-child(4) {
+  margin-left: 126px;
+  justify-content: flex-start;
+}
+
+.rewies__item {
+  width: 624px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.rewies__body {
+  padding: 40px;
+  border-radius: 30px;
+  background: var(--gray, #151b1a);
+  position: relative;
+}
+.rewies__body::before {
+  content: url(./img/comment-angle.svg);
+  position: absolute;
+  left: 40px;
+  top: calc(100% - 1px);
+}
+
+.rewies__text {
+}
+.rewies__author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.rewies__img {
+  width: 72px;
+  height: 72px;
+  border-radius: 40px;
+}
+.rewies__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rewies__name {
+}
+.rewies__job {
+}
+
+.form {
+  padding-bottom: 117px;
+}
+
+.form__body {
+  background: var(--gray, #151b1a);
+  border-radius: 50px;
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+.form__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 630px;
+}
+.form__title {
+}
+.form__green {
+  color: #8eeb21;
+}
+.form__img-container {
+  position: relative;
+  width: 100%;
+  width: 140px;
+  height: 140px;
+}
+.form__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  border-radius: 100px;
+}
+
+.form-play__btn {
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  width: 37px;
+  height: 37px;
+  border-radius: 37px;
+  border: 5px solid var(--bg, #070808);
+  background: var(--secondary, #005b49);
+  transition: all 0.3s ease 0s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-play__btn img {
+  width: 8.19px;
+  height: 10.24px;
+}
+
+.form-play__btn:hover {
+  background: #0f3028;
+}
+.form__main {
+  display: flex;
+  flex-direction: column;
+}
+.form__input {
+  border-radius: 16px;
+  padding: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  color: #070808;
+  letter-spacing: 0%;
+  background: #f8f8f8;
+  transition: all 0.3s ease 0s;
+  border: 3px solid #f8f8f8;
+}
+.form__input::placeholder {
+  opacity: 0.4;
+}
+
+.form__input:not(.form__input:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.form__input:focus-visible {
+  border: 3px solid #8eeb21;
+}
+
+.form__input:last-of-type {
+  margin-bottom: 24px;
+}
+
+.form__checkbox {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 38px;
+}
+.form__checkbox-btn {
+  background: none;
+  margin-top: 3px;
+}
+
+.form__checkbox-text {
+}
+
+.form__btn {
+}
+
+.footer {
+  height: 294px;
+  background-image: url(./img/logo-big.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.container {
+}
+.footer__row {
+  display: flex;
+  gap: 34px;
+}
+.footer__link {
+  opacity: 0.4;
 }
