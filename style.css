@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "Random Grotesque";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/GPN_DIN-Bold.ttf") format("truetype");
+}
+
+body {
+  font-family: "Onest", sans-serif;
+  background-color: #070808;
+  color: #f8f8f8;
+  min-height: 100vh;
+}
+
+/* ------------------------ */
+
+a {
+  color: #f8f8f8;
+}
+
+.text-18 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0%;
+}
+
+.btn {
+  border-radius: 30px;
+  background: var(--primary, #8eeb21);
+  color: #070808;
+  transition: all 0.3s ease 0s;
+}
+
+.btn:hover {
+  background: #005b49;
+  color: #f8f8f8;
+}
+
+.btn:active {
+  background: #003c30;
+}
+
+.btn-s {
+  padding: 10px 30px;
+}
+
+.btn-l {
+  padding: 26px 50px;
+}
+
+/* ------------------------ */
+
+.header {
+  margin-top: 30px;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0px 40px;
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__nav {
+  display: flex;
+  border-radius: 100px;
+  gap: 4px;
+  padding: 8px;
+  background: #151b1a;
+  backdrop-filter: blur(20px);
+}
+
+.header__link {
+  border-radius: 100px;
+  padding: 8px 24px;
+  transition: all 0.3s ease 0s;
+}
+
+.header__link:hover {
+  color: #8eeb21;
+}
+
+.header__dropdown {
+  display: flex;
+  align-items: center;
+  gap: 11.5px;
+  position: relative;
+  padding: 8px 24px;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: all 0.3s ease 0s;
+}
+
+.header__dropdown .header__icon {
+  transform: rotate(180deg);
+  transition: all 0.3s ease 0s;
+}
+
+.header__dropdown:hover {
+  background: #404544;
+}
+
+.header__dropdown:hover .header__icon {
+  transform: rotate(0deg);
+}
+
+.header__container {
+  padding-top: 4px;
+  left: 0;
+  top: 100%;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px;
+  background: #404544;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+}
+
+.header__dropdown:hover .header__container {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header__content .header__link {
+  padding: 4px;
+  border-radius: 0px;
+}
+
+.header__btn {
+}
