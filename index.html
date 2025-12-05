@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./cover.css" />
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
   </head>
@@ -19,6 +20,20 @@
     <header class="header">
       <div class="container">
         <div class="header__row">
+          <button class="header__burger">
+            <svg
+              width="24"
+              height="16"
+              viewBox="0 0 24 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22.3333 13C23.0697 13 23.6667 13.597 23.6667 14.3333C23.6667 15.0697 23.0697 15.6667 22.3333 15.6667H1.33333C0.596954 15.6667 0 15.0697 0 14.3333C0 13.597 0.596954 13 1.33333 13H22.3333ZM22.3333 6.5C23.0697 6.5 23.6667 7.09695 23.6667 7.83333C23.6667 8.56971 23.0697 9.16667 22.3333 9.16667H1.33333C0.596954 9.16667 0 8.56971 0 7.83333C0 7.09695 0.596954 6.5 1.33333 6.5H22.3333ZM22.3333 0C23.0697 0 23.6667 0.596954 23.6667 1.33333C23.6667 2.06971 23.0697 2.66667 22.3333 2.66667H1.33333C0.596954 2.66667 0 2.06971 0 1.33333C0 0.596954 0.596954 0 1.33333 0H22.3333Z"
+                fill="#F8F8F8"
+              />
+            </svg>
+          </button>
           <img src="./img/logo.svg" alt="" class="header__logo" />
           <nav class="header__nav">
             <a href="" class="text-18 header__link">проекты</a>
@@ -56,7 +71,69 @@
       </div>
     </header>
     <main class="main">
-      <section class="home">
+      <section class="cover">
+        <div class="container">
+          <div class="cover_wrap">
+            <div class="cover_wrap_content">
+              <div class="cover_wrap_content_title">
+                Панквеб — команда которая знает, что нужно вашему клиенту
+                <span class="cover_wrap_content_title_icon">
+                  <svg
+                    width="72"
+                    height="64"
+                    viewBox="0 0 72 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M52.9056 0C45.5472 0 39.1932 4.256 36 10.464C32.8068 4.256 26.4528 0 19.0944 0C8.5464 0 0 8.736 0 19.488C0 30.24 6.5412 40.096 14.994 48.192C23.4468 56.288 36 64 36 64C36 64 48.1464 56.416 57.006 48.192C66.456 39.424 72 30.272 72 19.488C72 8.704 63.4536 0 52.9056 0Z"
+                      fill="#9a9a9a"
+                    />
+                  </svg>
+                </span>
+                и как это должно выглядеть
+              </div>
+              <div class="cover_wrap_content_description">
+                Мы&nbsp;создаем айдентику, сайты и&nbsp;коммуникации, которые
+                помогают компаниям быть ярче, сильнее и ближе к&nbsp;своим
+                клиентам
+              </div>
+              <button type="button" class="cover_wrap_content_btn">
+                Обсудить проект
+              </button>
+            </div>
+            <div class="cover_wrap_content --cover-glow">
+              <div class="cover_wrap_content_title">
+                Панквеб — команда которая знает, что нужно вашему клиенту
+                <span class="cover_wrap_content_title_icon">
+                  <svg
+                    width="72"
+                    height="64"
+                    viewBox="0 0 72 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M52.9056 0C45.5472 0 39.1932 4.256 36 10.464C32.8068 4.256 26.4528 0 19.0944 0C8.5464 0 0 8.736 0 19.488C0 30.24 6.5412 40.096 14.994 48.192C23.4468 56.288 36 64 36 64C36 64 48.1464 56.416 57.006 48.192C66.456 39.424 72 30.272 72 19.488C72 8.704 63.4536 0 52.9056 0Z"
+                      fill="#8EEB21"
+                    />
+                  </svg>
+                </span>
+                и как это должно выглядеть
+              </div>
+              <div class="cover_wrap_content_description">
+                Мы&nbsp;создаем айдентику, сайты и&nbsp;коммуникации, которые
+                помогают компаниям быть ярче, сильнее и ближе к&nbsp;своим
+                клиентам
+              </div>
+              <button type="button" class="cover_wrap_content_btn">
+                Обсудить проект
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="home">
         <div class="container">
           <div class="home__column">
             <h1 class="home__title">
@@ -72,7 +149,7 @@
             </button>
           </div>
         </div>
-      </section>
+      </section> -->
       <section class="proj">
         <div class="container">
           <h2 class="proj__title">Любимые проекты</h2>
@@ -328,9 +405,10 @@
       <section class="serv">
         <div class="container">
           <h2 class="serv__title">
-            Мы создаём айдентику, сайты и рекламные продукты, которые не просто
-            красивы <img src="./img/diamond.svg" alt="" /> а работают на вас
-            <img src="./img/rocket.svg" alt="" /> выделяют, вовлекают, продают
+            Мы создаём айдентику, сайты и&nbsp;рекламные продукты, которые не
+            просто красивы <img src="./img/diamond.svg" alt="" /> а работают на
+            вас <img src="./img/rocket.svg" alt="" /> выделяют, вовлекают,
+            продают
           </h2>
           <div class="serv__row">
             <div class="serv__item">
@@ -660,5 +738,51 @@
         </div>
       </div>
     </footer>
+
+    <div class="menu">
+      <div class="menu__top">
+        <button class="menu__close">
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.6239 8.5026L16.5614 2.5651C16.8431 2.28381 17.0017 1.90209 17.002 1.50393C17.0024 1.10576 16.8445 0.72377 16.5632 0.441977C16.2819 0.160185 15.9002 0.00167771 15.5021 0.00132608C15.1039 0.000974453 14.7219 0.158807 14.4401 0.440102L8.5026 6.3776L2.5651 0.440102C2.28331 0.15831 1.90112 0 1.5026 0C1.10409 0 0.721895 0.15831 0.440102 0.440102C0.15831 0.721895 0 1.10409 0 1.5026C0 1.90112 0.15831 2.28331 0.440102 2.5651L6.3776 8.5026L0.440102 14.4401C0.15831 14.7219 0 15.1041 0 15.5026C0 15.9011 0.15831 16.2833 0.440102 16.5651C0.721895 16.8469 1.10409 17.0052 1.5026 17.0052C1.90112 17.0052 2.28331 16.8469 2.5651 16.5651L8.5026 10.6276L14.4401 16.5651C14.7219 16.8469 15.1041 17.0052 15.5026 17.0052C15.9011 17.0052 16.2833 16.8469 16.5651 16.5651C16.8469 16.2833 17.0052 15.9011 17.0052 15.5026C17.0052 15.1041 16.8469 14.7219 16.5651 14.4401L10.6239 8.5026Z"
+              fill="#F8F8F8"
+            />
+          </svg>
+        </button>
+        <div class="menu__col">
+          <a href="" class="text-24 menu__link">проекты</a>
+          <div class="menu__drop">
+            <a href="" class="text-24 menu__link">услуги</a>
+            <div class="menu__sub">
+              <a class="menu__sub-link">
+                <div class="menu__dot"></div>
+                <span class="text-18">сайты</span>
+              </a>
+              <a class="menu__sub-link">
+                <div class="menu__dot"></div>
+                <span class="text-18">брендинг</span>
+              </a>
+              <a class="menu__sub-link">
+                <div class="menu__dot"></div>
+                <span class="text-18">коммуникации</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="" class="text-24 menu__link">команда</a>
+          <a href="" class="text-24 menu__link">о нас</a>
+          <a href="" class="text-24 menu__link">отзывы</a>
+        </div>
+      </div>
+      <a class="btn btn-l menu__btn">
+        <span class="text-24">Обсудить проект</span>
+      </a>
+    </div>
   </body>
 </html>
