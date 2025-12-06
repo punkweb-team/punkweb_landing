@@ -389,6 +389,7 @@ if (typeof window !== "undefined") {
 
 // JavaScript для слайдера (добавить перед </body>)
 // УНИВЕРСАЛЬНЫЙ СКРИПТ ДЛЯ ВСЕХ СТРАНИЦ (добавить в основной JS файл)
+// ДОПОЛНИТЕЛЬНЫЙ КОД ДЛЯ ЧАСТИЧНОГО СЛАЙДЕРА
 document.addEventListener("DOMContentLoaded", function () {
   // Функция для инициализации слайдера на конкретной секции
   function initReviewsSlider(section) {
@@ -407,26 +408,50 @@ document.addEventListener("DOMContentLoaded", function () {
     let animationID;
     let autoSlideInterval;
 
+    // Определяем, это partial слайдер или обычный
+    const isPartialSlider = section.querySelector(
+      ".rewies__slider-mobile--partial"
+    );
+    const slideWidthMultiplier = isPartialSlider ? 0.75 : 1; // Для partial показываем 75% слайда
+
     // Инициализация слайдера
     function initSlider() {
       const isMobile = window.innerWidth <= 675;
 
       if (isMobile) {
-        // Показываем слайдер, скрываем оригинальную структуру
-        section.querySelector(".rewies__slider-mobile").style.display = "block";
-        section.querySelector(".rewies__column").style.display = "none";
+        // Показываем слайдер
+        const sliderContainer = section.querySelector(".rewies__slider-mobile");
+        if (sliderContainer) sliderContainer.style.display = "block";
+
+        // Скрываем оригинальную структуру (ищем разные варианты)
+        const originalContent =
+          section.querySelector(".rewies__column") ||
+          section.querySelector(".work__body");
+        if (originalContent) originalContent.style.display = "none";
 
         updateSlider();
         addEventListeners();
-        startAutoSlide();
+        if (!isPartialSlider) startAutoSlide(); // Для partial не включаем автослайд
       } else {
-        // Показываем оригинальную структуру, скрываем слайдер
-        section.querySelector(".rewies__column").style.display = "block";
-        section.querySelector(".rewies__slider-mobile").style.display = "none";
+        // Показываем оригинальную структуру
+        const originalContent =
+          section.querySelector(".rewies__column") ||
+          section.querySelector(".work__body");
+        if (originalContent) {
+          // Для work используем grid, для reviews - block
+          if (section.classList.contains("work")) {
+            originalContent.style.display = "grid";
+          } else {
+            originalContent.style.display = "block";
+          }
+        }
+
+        // Скрываем слайдер
+        const sliderContainer = section.querySelector(".rewies__slider-mobile");
+        if (sliderContainer) sliderContainer.style.display = "none";
 
         removeEventListeners();
         stopAutoSlide();
-        // Сбрасываем текущий слайд при переходе на десктоп
         currentSlide = 0;
       }
     }
@@ -477,10 +502,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const movedBy = currentTranslate - prevTranslate;
 
+      // Для partial слайдера делаем порог срабатывания меньше
+      const swipeThreshold = isPartialSlider ? 30 : 50;
+
       // Определяем направление свайпа
-      if (movedBy < -50 && currentSlide < slides.length - 1) {
+      if (movedBy < -swipeThreshold && currentSlide < slides.length - 1) {
         currentSlide++;
-      } else if (movedBy > 50 && currentSlide > 0) {
+      } else if (movedBy > swipeThreshold && currentSlide > 0) {
         currentSlide--;
       }
 
@@ -507,7 +535,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateSlider() {
-      const slideWidth = slides[0].clientWidth;
+      const slideElement = slides[0];
+      if (!slideElement) return;
+
+      // Для partial слайдера учитываем реальную ширину с отступами
+      let slideWidth;
+      if (isPartialSlider) {
+        // Получаем вычисленные стили для правильной ширины
+        const computedStyle = getComputedStyle(slideElement);
+        const width = parseFloat(computedStyle.width);
+        const marginRight = parseFloat(computedStyle.marginRight) || 0;
+        slideWidth = width + marginRight;
+      } else {
+        slideWidth = slideElement.clientWidth;
+      }
+
       const translateX = -currentSlide * slideWidth;
 
       sliderMobile.style.transform = `translateX(${translateX}px)`;
@@ -527,7 +569,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function startAutoSlide() {
-      if (slides.length <= 1) return;
+      if (slides.length <= 1 || isPartialSlider) return;
 
       autoSlideInterval = setInterval(() => {
         currentSlide = (currentSlide + 1) % slides.length;
@@ -549,12 +591,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Инициализация
     initSlider();
 
+    // Обработчик ресайза
+    window.addEventListener("resize", function () {
+      // При ресайзе обновляем позицию слайдера
+      updateSlider();
+    });
+
     // Возвращаем функцию для переинициализации при ресайзе
     return initSlider;
   }
 
   // Находим все секции с отзывами на странице
-  const reviewSections = document.querySelectorAll(".rewies");
+  const reviewSections = document.querySelectorAll(".rewies, .work");
   const resizeHandlers = [];
 
   // Инициализируем слайдеры для всех секций
@@ -574,5 +622,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
   });
 });
-
-// Альтернатива: если нужно инициализировать только одну конкретную секцию

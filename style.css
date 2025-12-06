@@ -361,9 +361,85 @@ html:has(.menu__open) {
     font-size: 14px;
   }
 }
+
 @media (max-width: 675px) {
   .work__body {
     display: flex;
+  }
+}
+/* ДОБАВЛЯЕМ В СУЩЕСТВУЮЩИЙ CSS */
+
+@media (min-width: 676px) {
+  .work .rewies__slider-mobile {
+    display: none !important;
+  }
+
+  .work__body {
+    display: grid; /* Показываем оригинальную сетку */
+  }
+}
+
+@media (max-width: 675px) {
+  /* Скрываем оригинальную сетку на мобильных */
+  .work__body {
+    display: none;
+  }
+
+  /* Показываем слайдер на мобильных */
+  .work .rewies__slider-mobile {
+    display: block;
+  }
+
+  /* Показываем пагинацию на мобильных */
+  .work .rewies__pagination {
+    display: flex !important;
+  }
+}
+
+/* ДОБАВЛЯЕМ ЭТИ СТИЛИ В СУЩЕСТВУЮЩИЙ CSS */
+
+/* Стили для слайдера с частичным показом следующего слайда (ТОЛЬКО для work) */
+
+.rewies__slider-track--partial {
+  gap: 10px; /* Отступ между слайдами */
+}
+
+.rewies__slider-mobile--partial .rewies__slide {
+  flex: 0 0 calc(100% - 60px); /* Ширина слайда минус отступ для показа части следующего */
+  min-width: calc(100% - 60px); /* Показываем ~80% текущего слайда */
+}
+
+/* Пагинация для такого слайдера */
+.rewies__slider-mobile--partial .rewies__pagination {
+  margin-top: 20px;
+}
+
+/* Адаптация блоков work__li внутри слайдов */
+.rewies__slider-mobile--partial .rewies__slide .work__li {
+  height: 156px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #151b1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Скрываем последний отступ у последнего слайда */
+.rewies__slider-mobile--partial .rewies__slide:last-child {
+  margin-right: 0;
+}
+
+/* Медиа-запросы остаются без изменений */
+@media (min-width: 676px) {
+  .rewies__slider-mobile--partial {
+    display: none !important;
+  }
+}
+
+@media (max-width: 675px) {
+  .rewies__slider-mobile--partial {
+    display: block !important;
   }
 }
 /* ---------------------- */
@@ -1433,7 +1509,6 @@ html:has(.menu__open) {
 .rewies__slide {
   flex: 0 0 100%;
   min-width: 100%;
-  padding: 0 15px;
   box-sizing: border-box;
 }
 
