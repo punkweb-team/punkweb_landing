@@ -93,13 +93,19 @@ svg * {
 }
 @media (hover: hover) {
   .cover_wrap_content.--cover-white .cover_wrap_content_btn:hover {
-    background: #5c17c2;
+    background: #005b49;
     color: #fff;
   }
 }
+
+.cover_wrap_content.--cover-white .cover_wrap_content_btn:active {
+  background: #003c30;
+  color: #fff;
+}
+
 @media (hover: none) {
   .cover_wrap_content.--cover-white .cover_wrap_content_btn:active {
-    background: #5c17c2;
+    background: #005b49;
     color: #fff;
   }
 }
