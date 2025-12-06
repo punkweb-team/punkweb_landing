@@ -388,164 +388,191 @@ if (typeof window !== "undefined") {
 }
 
 // JavaScript для слайдера (добавить перед </body>)
+// УНИВЕРСАЛЬНЫЙ СКРИПТ ДЛЯ ВСЕХ СТРАНИЦ (добавить в основной JS файл)
 document.addEventListener("DOMContentLoaded", function () {
-  const sliderMobile = document.querySelector(".rewies__slider-track");
-  const slides = document.querySelectorAll(".rewies__slide");
-  const dots = document.querySelectorAll(".pagination__dot");
+  // Функция для инициализации слайдера на конкретной секции
+  function initReviewsSlider(section) {
+    const sliderMobile = section.querySelector(".rewies__slider-track");
+    const slides = section.querySelectorAll(".rewies__slide");
+    const dots = section.querySelectorAll(".pagination__dot");
 
-  if (!sliderMobile || !slides.length) return;
+    // Если нет слайдера на этой странице - выходим
+    if (!sliderMobile || !slides.length) return;
 
-  let currentSlide = 0;
-  let isDragging = false;
-  let startPos = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  let animationID;
-  let autoSlideInterval;
+    let currentSlide = 0;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID;
+    let autoSlideInterval;
 
-  // Инициализация слайдера
-  function initSlider() {
-    const isMobile = window.innerWidth <= 675;
+    // Инициализация слайдера
+    function initSlider() {
+      const isMobile = window.innerWidth <= 675;
 
-    if (isMobile) {
-      // Показываем слайдер, скрываем оригинальную структуру
-      document.querySelector(".rewies__slider-mobile").style.display = "block";
-      document.querySelector(".rewies__column").style.display = "none";
+      if (isMobile) {
+        // Показываем слайдер, скрываем оригинальную структуру
+        section.querySelector(".rewies__slider-mobile").style.display = "block";
+        section.querySelector(".rewies__column").style.display = "none";
 
-      updateSlider();
-      addEventListeners();
-      startAutoSlide();
-    } else {
-      // Показываем оригинальную структуру, скрываем слайдер
-      document.querySelector(".rewies__column").style.display = "block";
-      document.querySelector(".rewies__slider-mobile").style.display = "none";
-
-      removeEventListeners();
-      stopAutoSlide();
-    }
-  }
-
-  function addEventListeners() {
-    // Свайп для мобильных
-    sliderMobile.addEventListener("touchstart", touchStart);
-    sliderMobile.addEventListener("touchend", touchEnd);
-    sliderMobile.addEventListener("touchmove", touchMove);
-
-    // Клики по пагинации
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => goToSlide(index));
-    });
-  }
-
-  function removeEventListeners() {
-    sliderMobile.removeEventListener("touchstart", touchStart);
-    sliderMobile.removeEventListener("touchend", touchEnd);
-    sliderMobile.removeEventListener("touchmove", touchMove);
-
-    dots.forEach((dot, index) => {
-      const newDot = dot.cloneNode(true);
-      dot.parentNode.replaceChild(newDot, dot);
-    });
-  }
-
-  function touchStart(event) {
-    isDragging = true;
-    startPos = event.touches[0].clientX;
-    sliderMobile.style.transition = "none";
-    cancelAnimationFrame(animationID);
-    animationID = requestAnimationFrame(animation);
-  }
-
-  function touchMove(event) {
-    if (!isDragging) return;
-    const currentPosition = event.touches[0].clientX;
-    const diff = currentPosition - startPos;
-    currentTranslate = prevTranslate + diff;
-  }
-
-  function touchEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-    cancelAnimationFrame(animationID);
-
-    const movedBy = currentTranslate - prevTranslate;
-
-    // Определяем направление свайпа
-    if (movedBy < -50 && currentSlide < slides.length - 1) {
-      currentSlide++;
-    } else if (movedBy > 50 && currentSlide > 0) {
-      currentSlide--;
-    }
-
-    goToSlide(currentSlide);
-  }
-
-  function animation() {
-    if (isDragging) {
-      setSliderPosition();
-      requestAnimationFrame(animation);
-    }
-  }
-
-  function setSliderPosition() {
-    sliderMobile.style.transform = `translateX(${currentTranslate}px)`;
-  }
-
-  function goToSlide(slideIndex) {
-    if (slideIndex < 0 || slideIndex >= slides.length) return;
-
-    currentSlide = slideIndex;
-    updateSlider();
-    resetAutoSlide();
-  }
-
-  function updateSlider() {
-    const slideWidth = slides[0].clientWidth;
-    const translateX = -currentSlide * slideWidth;
-
-    sliderMobile.style.transform = `translateX(${translateX}px)`;
-    sliderMobile.style.transition = "transform 0.3s ease";
-
-    // Обновляем пагинацию
-    dots.forEach((dot, index) => {
-      if (index === currentSlide) {
-        dot.classList.add("pagination__dot-active");
+        updateSlider();
+        addEventListeners();
+        startAutoSlide();
       } else {
-        dot.classList.remove("pagination__dot-active");
+        // Показываем оригинальную структуру, скрываем слайдер
+        section.querySelector(".rewies__column").style.display = "block";
+        section.querySelector(".rewies__slider-mobile").style.display = "none";
+
+        removeEventListeners();
+        stopAutoSlide();
+        // Сбрасываем текущий слайд при переходе на десктоп
+        currentSlide = 0;
       }
-    });
-
-    prevTranslate = translateX;
-    currentTranslate = translateX;
-  }
-
-  function startAutoSlide() {
-    if (slides.length <= 1) return;
-
-    autoSlideInterval = setInterval(() => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      updateSlider();
-    }, 5000);
-  }
-
-  function stopAutoSlide() {
-    if (autoSlideInterval) {
-      clearInterval(autoSlideInterval);
     }
+
+    function addEventListeners() {
+      // Свайп для мобильных
+      sliderMobile.addEventListener("touchstart", touchStart);
+      sliderMobile.addEventListener("touchend", touchEnd);
+      sliderMobile.addEventListener("touchmove", touchMove);
+
+      // Клики по пагинации
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => goToSlide(index));
+      });
+    }
+
+    function removeEventListeners() {
+      sliderMobile.removeEventListener("touchstart", touchStart);
+      sliderMobile.removeEventListener("touchend", touchEnd);
+      sliderMobile.removeEventListener("touchmove", touchMove);
+
+      dots.forEach((dot, index) => {
+        // Удаляем старые обработчики
+        const newDot = dot.cloneNode(true);
+        dot.parentNode.replaceChild(newDot, dot);
+      });
+    }
+
+    function touchStart(event) {
+      isDragging = true;
+      startPos = event.touches[0].clientX;
+      sliderMobile.style.transition = "none";
+      cancelAnimationFrame(animationID);
+      animationID = requestAnimationFrame(animation);
+    }
+
+    function touchMove(event) {
+      if (!isDragging) return;
+      const currentPosition = event.touches[0].clientX;
+      const diff = currentPosition - startPos;
+      currentTranslate = prevTranslate + diff;
+    }
+
+    function touchEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+
+      const movedBy = currentTranslate - prevTranslate;
+
+      // Определяем направление свайпа
+      if (movedBy < -50 && currentSlide < slides.length - 1) {
+        currentSlide++;
+      } else if (movedBy > 50 && currentSlide > 0) {
+        currentSlide--;
+      }
+
+      goToSlide(currentSlide);
+    }
+
+    function animation() {
+      if (isDragging) {
+        setSliderPosition();
+        requestAnimationFrame(animation);
+      }
+    }
+
+    function setSliderPosition() {
+      sliderMobile.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function goToSlide(slideIndex) {
+      if (slideIndex < 0 || slideIndex >= slides.length) return;
+
+      currentSlide = slideIndex;
+      updateSlider();
+      resetAutoSlide();
+    }
+
+    function updateSlider() {
+      const slideWidth = slides[0].clientWidth;
+      const translateX = -currentSlide * slideWidth;
+
+      sliderMobile.style.transform = `translateX(${translateX}px)`;
+      sliderMobile.style.transition = "transform 0.3s ease";
+
+      // Обновляем пагинацию
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add("pagination__dot-active");
+        } else {
+          dot.classList.remove("pagination__dot-active");
+        }
+      });
+
+      prevTranslate = translateX;
+      currentTranslate = translateX;
+    }
+
+    function startAutoSlide() {
+      if (slides.length <= 1) return;
+
+      autoSlideInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+      }, 5000);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+      }
+    }
+
+    function resetAutoSlide() {
+      stopAutoSlide();
+      startAutoSlide();
+    }
+
+    // Инициализация
+    initSlider();
+
+    // Возвращаем функцию для переинициализации при ресайзе
+    return initSlider;
   }
 
-  function resetAutoSlide() {
-    stopAutoSlide();
-    startAutoSlide();
-  }
+  // Находим все секции с отзывами на странице
+  const reviewSections = document.querySelectorAll(".rewies");
+  const resizeHandlers = [];
 
-  // Обработчик изменения размера окна
+  // Инициализируем слайдеры для всех секций
+  reviewSections.forEach((section, index) => {
+    const initHandler = initReviewsSlider(section);
+    if (initHandler) {
+      resizeHandlers.push(initHandler);
+    }
+  });
+
+  // Глобальный обработчик ресайза
   let resizeTimeout;
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(initSlider, 100);
+    resizeTimeout = setTimeout(() => {
+      resizeHandlers.forEach((handler) => handler());
+    }, 100);
   });
-
-  // Инициализация при загрузке
-  initSlider();
 });
+
+// Альтернатива: если нужно инициализировать только одну конкретную секцию
