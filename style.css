@@ -1,3 +1,8 @@
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Onest", sans-serif;
   background-color: #070808;
@@ -203,7 +208,239 @@ html:has(.menu__open) {
 .menu__btn span {
   font-size: 24px;
 }
+/* ------------------ */
+.home {
+  padding-top: 15px;
+  padding-bottom: 240px;
+}
+.home__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.home__img {
+  width: 228px;
+  height: 120px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 39px;
+}
+.home__title {
+  color: #8eeb21;
+  margin-bottom: 20px;
+}
+.home__description {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 52px;
+}
+.home__btn {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 85px;
+}
+.home__voice {
+  text-align: left;
+  margin-bottom: 162px;
+}
+.home__img-big {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+}
+@media (max-width: 1080px) {
+  .home {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+  .home__img {
+    width: 168px;
+    height: 88px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+  }
 
+  .home__img-big {
+    border-radius: 12px;
+  }
+
+  .home__title {
+    margin-bottom: 8px;
+  }
+  .home__description {
+    max-width: 610px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+
+  .home__btn {
+    padding: 18px 32px;
+    font-size: 16px;
+    margin-bottom: 80px;
+    border-radius: 12px;
+  }
+
+  .voice.home__voice {
+    display: none;
+  }
+}
+@media (max-width: 675px) {
+  .home__description {
+    font-size: 14px;
+  }
+  .home__btn {
+    margin-bottom: 60px;
+  }
+}
+/* --------------------- */
+
+.work {
+  padding-bottom: 240px;
+}
+
+.work .container {
+  max-width: 1344px;
+}
+
+.work__title {
+  text-align: center;
+  margin-bottom: 62px;
+}
+
+.work__body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.work__li {
+  width: 100%;
+  height: 262px;
+  border-radius: 30px;
+  padding: 40px;
+  background: #151b1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.work__number {
+  opacity: 0.4;
+}
+.work__info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.work__heading {
+  color: #8eeb21;
+}
+
+@media (max-width: 1080px) {
+  .work {
+    padding-bottom: 80px;
+  }
+  .work__title {
+    margin-bottom: 16px;
+  }
+  .work__body {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .work__li {
+    padding: 20px;
+    height: 156px;
+  }
+
+  .work__description {
+    font-size: 14px;
+  }
+}
+@media (max-width: 675px) {
+  .work__body {
+    display: flex;
+  }
+}
+/* ---------------------- */
+.path {
+  padding-bottom: 240px;
+}
+.path .container {
+  max-width: 1344px;
+}
+
+.path__body {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.path__item {
+  padding: 30px;
+  border-radius: 30px;
+  display: flex;
+  gap: 30px;
+  background: var(--gray, #151b1a);
+  align-items: center;
+}
+.path__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.path__col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.path__title {
+  color: #8eeb21;
+}
+
+.path__text {
+}
+
+@media (max-width: 1080px) {
+  .path {
+    padding-bottom: 80px;
+  }
+  .path__body {
+    gap: 10px;
+  }
+  .path__item {
+    padding: 20px;
+    border-radius: 16px;
+    gap: 24px;
+  }
+  .path__img {
+    width: 335px;
+    border-radius: 8px;
+  }
+
+  .path__text {
+    font-size: 14px;
+  }
+
+  .path__col {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 675px) {
+  .path__item {
+    flex-direction: column;
+  }
+
+  .path__img {
+    width: 100%;
+  }
+}
+/* ---------------------- */
 .header {
   margin-top: 30px;
 }
@@ -237,6 +474,11 @@ html:has(.menu__open) {
 
 .header__link:hover {
   color: #8eeb21;
+}
+
+.header__link-active {
+  background: #404544;
+  backdrop-filter: blur(20px);
 }
 
 .header__dropdown {
@@ -515,8 +757,6 @@ html:has(.menu__open) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  margin-top: 20px;
-  transform: scale(1.5);
 }
 
 .voice__main {
@@ -590,6 +830,23 @@ html:has(.menu__open) {
 .voice__person {
 }
 
+.voice__btn.playing {
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+}
+
+.voice__line {
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.voice__lines:hover .voice__line {
+  opacity: 0.5;
+}
+
+.voice__lines:hover .voice__line.active {
+  opacity: 1;
+}
+
 @media (max-width: 1080px) {
   .proj__title {
     margin-bottom: 40px;
@@ -614,10 +871,6 @@ html:has(.menu__open) {
     height: 60px;
     position: relative;
     top: -20px;
-  }
-
-  .voice__img {
-    margin-top: 14px;
   }
 
   .voice__progress {
@@ -787,6 +1040,11 @@ html:has(.menu__open) {
 .serv {
   padding-top: 240px;
 }
+
+.brand__serv {
+  padding-bottom: 116px;
+}
+
 .serv__title {
   text-align: center;
   margin: 0 auto;
@@ -805,6 +1063,9 @@ html:has(.menu__open) {
 }
 .serv__item {
   padding: 0px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .serv__img {
   width: 416px;
@@ -856,6 +1117,10 @@ html:has(.menu__open) {
     width: 316px;
   }
 
+  .brand__serv .serv__item {
+    width: 100%;
+  }
+
   .serv__item:nth-child(3) .serv__tags {
     width: 100%;
   }
@@ -899,6 +1164,10 @@ html:has(.menu__open) {
   .serv__item {
     width: 238px;
   }
+
+  .brand__serv .serv__item {
+    width: 100%;
+  }
 }
 
 @media (max-width: 675px) {
@@ -916,6 +1185,10 @@ html:has(.menu__open) {
 
   .serv__tags {
     gap: 6px;
+  }
+
+  .brand__serv {
+    padding: 60px 0;
   }
 }
 
@@ -1291,6 +1564,10 @@ html:has(.menu__open) {
   padding-bottom: 117px;
 }
 
+.brand__form {
+  padding-bottom: 0px;
+}
+
 .form__body {
   background: var(--gray, #151b1a);
   border-radius: 50px;
@@ -1434,6 +1711,10 @@ html:has(.menu__open) {
     padding-bottom: 80px;
   }
 
+  .brand__form {
+    padding-bottom: 0px;
+  }
+
   .form__body {
     padding: 60px;
     border-radius: 40px;
@@ -1526,6 +1807,10 @@ html:has(.menu__open) {
 
   .form {
     padding-bottom: 60px;
+  }
+
+  .brand__form {
+    padding-bottom: 0px;
   }
 
   .footer {

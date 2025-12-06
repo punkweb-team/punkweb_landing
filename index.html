@@ -36,7 +36,7 @@
           </button>
           <img src="./img/logo.svg" alt="" class="header__logo" />
           <nav class="header__nav">
-            <a href="" class="text-18 header__link">проекты</a>
+            <a href="#projects" class="text-18 header__link">проекты</a>
             <div class="header__dropdown">
               <span class="text-18">услуги</span>
               <svg
@@ -54,17 +54,23 @@
               </svg>
               <div class="header__container">
                 <div class="header__content">
-                  <a href="" class="text-18 header__link">сайты</a>
-                  <a href="" class="text-18 header__link">брендинг</a>
-                  <a href="" class="text-18 header__link">коммуникации</a>
+                  <a href="./websites.html" class="text-18 header__link"
+                    >сайты</a
+                  >
+                  <a href="./branding.html" class="text-18 header__link"
+                    >брендинг</a
+                  >
+                  <a href="./communications.html" class="text-18 header__link"
+                    >коммуникации</a
+                  >
                 </div>
               </div>
             </div>
-            <a href="" class="text-18 header__link">команда</a>
-            <a href="" class="text-18 header__link">о нас</a>
-            <a href="" class="text-18 header__link">отзывы</a>
+            <a href="#team" class="text-18 header__link">команда</a>
+            <a href="#about" class="text-18 header__link">о нас</a>
+            <a href="#reviews" class="text-18 header__link">отзывы</a>
           </nav>
-          <a href="" class="btn btn-s header__btn">
+          <a href="#form" class="btn btn-s header__btn">
             <span class="text-18">Обсудить проект</span>
           </a>
         </div>
@@ -98,9 +104,9 @@
                 помогают компаниям быть ярче, сильнее и ближе к&nbsp;своим
                 клиентам
               </div>
-              <button type="button" class="cover_wrap_content_btn">
+              <a href="#form" class="cover_wrap_content_btn">
                 Обсудить проект
-              </button>
+              </a>
             </div>
             <div class="cover_wrap_content --cover-glow">
               <div class="cover_wrap_content_title">
@@ -126,9 +132,9 @@
                 помогают компаниям быть ярче, сильнее и ближе к&nbsp;своим
                 клиентам
               </div>
-              <button type="button" class="cover_wrap_content_btn">
+              <a href="#form" type="button" class="cover_wrap_content_btn">
                 Обсудить проект
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -150,7 +156,7 @@
           </div>
         </div>
       </section> -->
-      <section class="proj">
+      <section class="proj" id="projects">
         <div class="container">
           <h2 class="proj__title">Любимые проекты</h2>
           <div class="proj__column">
@@ -167,9 +173,12 @@
                   <h3 class="proj__name">Рефстройсервис</h3>
                   <p class="text-24 proj__text">UI/UX, разработка сайта</p>
                 </div>
-                <div class="proj__right voice">
+                <div
+                  class="proj__right voice"
+                  data-audio-src="./voice/voice1.mp3"
+                >
                   <div class="voice__img-container">
-                    <img src="./img/person1.jpg" alt="" class="voice__img" />
+                    <img src="./img/team3.png" alt="" class="voice__img" />
                   </div>
                   <div class="voice__main">
                     <div class="voice__progress">
@@ -231,9 +240,12 @@
                     Брендинг, оформление соцсетей
                   </p>
                 </div>
-                <div class="proj__right voice">
+                <div
+                  class="proj__right voice"
+                  data-audio-src="./voice/voice1.mp3"
+                >
                   <div class="voice__img-container">
-                    <img src="./img/person1.jpg" alt="" class="voice__img" />
+                    <img src="./img/team8.png" alt="" class="voice__img" />
                   </div>
                   <div class="voice__main">
                     <div class="voice__progress">
@@ -293,7 +305,7 @@
                 </div>
                 <div class="proj__right voice">
                   <div class="voice__img-container">
-                    <img src="./img/person1.jpg" alt="" class="voice__img" />
+                    <img src="./img/team6.png" alt="" class="voice__img" />
                   </div>
                   <div class="voice__main">
                     <div class="voice__progress">
@@ -355,7 +367,7 @@
                 </div>
                 <div class="proj__right voice">
                   <div class="voice__img-container">
-                    <img src="./img/person1.jpg" alt="" class="voice__img" />
+                    <img src="./img/team1.png" alt="" class="voice__img" />
                   </div>
                   <div class="voice__main">
                     <div class="voice__progress">
@@ -402,7 +414,7 @@
           </div>
         </div>
       </section>
-      <section class="serv">
+      <section class="serv" id="services">
         <div class="container">
           <h2 class="serv__title">
             Мы создаём айдентику, сайты и&nbsp;рекламные продукты, которые не
@@ -462,7 +474,7 @@
           </div>
         </div>
       </section>
-      <section class="team">
+      <section class="team" id="team">
         <div class="container">
           <h2 class="team__title">
             Начинали с небольшой команды из&nbsp;трех&nbsp;человек, а сейчас
@@ -536,7 +548,7 @@
               <p class="text-18 team__text">project-менеджер</p>
             </div>
           </div>
-          <h2 class="team__subtitle">
+          <h2 id="about" class="team__subtitle">
             Каждый проект — это ясная система, которая помогает бизнесу
             выделяться и уверенно расти
           </h2>
@@ -585,7 +597,7 @@
           </div>
         </div>
       </section>
-      <section class="rewies">
+      <section id="reviews" class="rewies">
         <div class="container">
           <h2 class="rewies__title">
             Cпросили
@@ -676,7 +688,7 @@
           </div>
         </div>
       </section>
-      <section class="form">
+      <section class="form" id="form">
         <div class="container">
           <div class="form__body">
             <div class="form__left">
@@ -756,28 +768,28 @@
           </svg>
         </button>
         <div class="menu__col">
-          <a href="" class="text-24 menu__link">проекты</a>
+          <a href="#projects" class="text-24 menu__link">проекты</a>
           <div class="menu__drop">
-            <a href="" class="text-24 menu__link">услуги</a>
+            <a href="#services" class="text-24 menu__link">услуги</a>
             <div class="menu__sub">
-              <a class="menu__sub-link">
+              <a href="./websites.html" class="menu__sub-link">
                 <div class="menu__dot"></div>
                 <span class="text-18">сайты</span>
               </a>
-              <a class="menu__sub-link">
+              <a href="./branding.html" class="menu__sub-link">
                 <div class="menu__dot"></div>
                 <span class="text-18">брендинг</span>
               </a>
-              <a class="menu__sub-link">
+              <a href="./communications.html" class="menu__sub-link">
                 <div class="menu__dot"></div>
                 <span class="text-18">коммуникации</span>
               </a>
             </div>
           </div>
 
-          <a href="" class="text-24 menu__link">команда</a>
-          <a href="" class="text-24 menu__link">о нас</a>
-          <a href="" class="text-24 menu__link">отзывы</a>
+          <a href="#team" class="text-24 menu__link">команда</a>
+          <a href="#about" class="text-24 menu__link">о нас</a>
+          <a href="#reviews" class="text-24 menu__link">отзывы</a>
         </div>
       </div>
       <a class="btn btn-l menu__btn">
