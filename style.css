@@ -1413,6 +1413,94 @@ html:has(.menu__open) {
   }
 }
 /* ----------------------- */
+/* Стили слайдера для мобильных */
+.rewies__slider-mobile {
+  display: none; /* По умолчанию скрыт */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.rewies__slider-track {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.rewies__slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Стили для десктопа - оригинальные стили остаются без изменений */
+@media (min-width: 676px) {
+  .rewies__column {
+    display: block; /* Показываем оригинальную структуру */
+  }
+
+  .rewies__slider-mobile {
+    display: none !important; /* Скрываем слайдер */
+  }
+
+  .rewies__pagination {
+    display: none !important; /* Скрываем пагинацию на десктопе */
+  }
+}
+
+/* Стили для мобильных */
+@media (max-width: 675px) {
+  /* Скрываем оригинальную структуру на мобильных */
+  .rewies__column {
+    display: none;
+  }
+
+  /* Показываем слайдер на мобильных */
+  .rewies__slider-mobile {
+    display: block;
+  }
+
+  /* Адаптация пагинации для мобильных */
+  .rewies__pagination {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 24px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Убираем оригинальное позиционирование для слайдов */
+  .rewies__slide .rewies__item {
+    width: 100%;
+    max-width: 485px;
+    margin: 0 auto;
+    display: flex !important;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .rewies__slide .rewies__body {
+    padding: 30px;
+    border-radius: 30px;
+    background: var(--gray, #151b1a);
+    position: relative;
+  }
+
+  .rewies__slide .rewies__body::before {
+    content: url(./img/comment-angle.svg);
+    position: absolute;
+    left: 40px;
+    top: calc(100% - 1px);
+  }
+
+  .rewies__slide .rewies__author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+/* ------------ */
 .rewies {
   padding-bottom: 286px;
   background-image: url(./img/rewiews-gradient1.png);
@@ -1586,6 +1674,7 @@ html:has(.menu__open) {
     margin-top: 24px;
     align-items: center;
     gap: 8px;
+    height: 6px;
   }
 
   .pagination__dot {
