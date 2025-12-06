@@ -138,7 +138,16 @@ class VoiceMessage {
       this.togglePlayback();
     });
 
-    this.resetLines();
+    // Изначально все линии с opacity 1
+    this.resetToInitialState();
+  }
+
+  resetToInitialState() {
+    // Устанавливаем все линии с opacity 1 по умолчанию
+    this.lines.forEach((line) => {
+      line.style.opacity = "1";
+      line.style.transition = "opacity 0.3s ease";
+    });
   }
 
   calculateLineDuration() {
@@ -153,8 +162,38 @@ class VoiceMessage {
     if (this.isPlaying) {
       this.pause();
     } else {
+      // Останавливаем все другие голосовые сообщения перед воспроизведением
+      this.stopAllOtherVoiceMessages();
       this.play();
     }
+  }
+
+  // Функция для остановки всех других голосовых сообщений
+  stopAllOtherVoiceMessages() {
+    const allVoiceContainers = document.querySelectorAll(".voice");
+    allVoiceContainers.forEach((otherContainer) => {
+      // Пропускаем текущий контейнер
+      if (otherContainer === this.container) return;
+
+      if (
+        otherContainer.voiceInstance &&
+        otherContainer.voiceInstance.isPlaying
+      ) {
+        otherContainer.voiceInstance.pause();
+        // Возвращаем иконку play для других сообщений
+        const otherPlayIcon = otherContainer.querySelector(".voice__btn img");
+        if (otherPlayIcon) {
+          otherPlayIcon.src = "./img/play.svg";
+        }
+        // Убираем класс playing
+        const otherPlayBtn = otherContainer.querySelector(".voice__btn");
+        if (otherPlayBtn) {
+          otherPlayBtn.classList.remove("playing");
+        }
+        // Возвращаем линии других сообщений в исходное состояние
+        otherContainer.voiceInstance.resetToInitialState();
+      }
+    });
   }
 
   async play() {
@@ -164,6 +203,7 @@ class VoiceMessage {
       this.playIcon.src = "./img/pause.svg";
       this.playBtn.classList.add("playing");
 
+      // При старте воспроизведения устанавливаем все линии на opacity 0.2
       this.startProgressAnimation();
     } catch (error) {
       console.error("Ошибка воспроизведения:", error);
@@ -194,28 +234,33 @@ class VoiceMessage {
   updateLinesVisibility(currentLineIndex) {
     this.lines.forEach((line, index) => {
       if (index <= currentLineIndex) {
+        // Линии до текущего прогресса - opacity 1
         line.style.opacity = "1";
         line.style.transition = "opacity 0.3s ease";
       } else {
+        // Остальные линии - opacity 0.2
         line.style.opacity = "0.2";
       }
     });
   }
 
   startProgressAnimation() {
-    this.resetLines();
+    // При старте воспроизведения все линии становятся opacity 0.2
+    this.lines.forEach((line) => {
+      line.style.opacity = "0.2";
+      line.style.transition = "opacity 0.3s ease";
+    });
 
+    // Затем начинаем анимацию
     this.animateLines();
   }
 
-  resetLines() {
-    this.lines.forEach((line) => {
-      line.style.opacity = "0.2";
-      line.style.transition = "opacity 0.1s ease";
-    });
-  }
-
   animateLines() {
+    // Очищаем предыдущий интервал если есть
+    if (this.animationInterval) {
+      clearInterval(this.animationInterval);
+    }
+
     this.animationInterval = setInterval(() => {
       if (!this.isPlaying) {
         clearInterval(this.animationInterval);
@@ -240,18 +285,58 @@ class VoiceMessage {
     this.isPlaying = false;
     this.playIcon.src = "./img/play.svg";
     this.playBtn.classList.remove("playing");
-    this.resetLines();
-    this.stopProgressAnimation();
 
+    // Возвращаем все линии в исходное состояние (opacity 1)
+    this.resetToInitialState();
+
+    this.stopProgressAnimation();
     this.audio.currentTime = 0;
+  }
+
+  // Метод для принудительной остановки (вызывается извне)
+  forcePause() {
+    this.pause();
+    // При принудительной остановке возвращаем линии в исходное состояние
+    this.resetToInitialState();
   }
 
   destroy() {
     this.pause();
-    this.audio.remove();
+    if (this.audio) {
+      this.audio.remove();
+    }
     this.playBtn.removeEventListener("click", this.togglePlayback);
   }
 }
+
+// Глобальный объект для управления всеми голосовыми сообщениями
+const VoiceMessagesManager = {
+  instances: [],
+
+  register(instance) {
+    this.instances.push(instance);
+  },
+
+  unregister(instance) {
+    this.instances = this.instances.filter((inst) => inst !== instance);
+  },
+
+  stopAllExcept(exceptInstance) {
+    this.instances.forEach((instance) => {
+      if (instance !== exceptInstance && instance.isPlaying) {
+        instance.forcePause();
+      }
+    });
+  },
+
+  stopAll() {
+    this.instances.forEach((instance) => {
+      if (instance.isPlaying) {
+        instance.forcePause();
+      }
+    });
+  },
+};
 
 function initVoiceMessages() {
   const voiceContainers = document.querySelectorAll(".voice");
@@ -265,22 +350,39 @@ function initVoiceMessages() {
 
     const voiceMessage = new VoiceMessage(container);
 
+    // Регистрируем экземпляр в менеджере
+    VoiceMessagesManager.register(voiceMessage);
+
     container.voiceInstance = voiceMessage;
   });
 }
 
+// Функция для остановки всех голосовых сообщений
 function stopAllVoiceMessages() {
-  const voiceContainers = document.querySelectorAll(".voice");
-  voiceContainers.forEach((container) => {
-    if (container.voiceInstance) {
-      container.voiceInstance.pause();
-    }
-  });
+  VoiceMessagesManager.stopAll();
 }
 
-document.addEventListener("DOMContentLoaded", initVoiceMessages);
+// Обновляем togglePlayback для использования менеджера
+VoiceMessage.prototype.togglePlayback = function () {
+  if (this.isPlaying) {
+    this.pause();
+  } else {
+    // Останавливаем все другие голосовые сообщения через менеджер
+    VoiceMessagesManager.stopAllExcept(this);
+    this.play();
+  }
+};
 
+// Инициализация при загрузке страницы
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initVoiceMessages);
+} else {
+  initVoiceMessages();
+}
+
+// Экспорт в глобальную область видимости
 if (typeof window !== "undefined") {
   window.initVoiceMessages = initVoiceMessages;
   window.stopAllVoiceMessages = stopAllVoiceMessages;
+  window.VoiceMessagesManager = VoiceMessagesManager;
 }

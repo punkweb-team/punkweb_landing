@@ -558,6 +558,10 @@ html:has(.menu__open) {
     width: 107px;
   }
 
+  .header__logo img {
+    width: 107px;
+  }
+
   .container {
     padding: 0px 17px;
   }
@@ -574,6 +578,10 @@ html:has(.menu__open) {
     width: 85px;
   }
 
+  .header__logo img {
+    width: 85px;
+  }
+
   .container {
     padding: 0px 9px;
   }
@@ -586,6 +594,7 @@ html:has(.menu__open) {
 }
 
 .proj {
+  padding-bottom: 240px;
 }
 .proj__title {
   text-align: center;
@@ -848,6 +857,10 @@ html:has(.menu__open) {
 }
 
 @media (max-width: 1080px) {
+  .proj {
+    padding-bottom: 80px;
+  }
+
   .proj__title {
     margin-bottom: 40px;
   }
@@ -900,6 +913,10 @@ html:has(.menu__open) {
 }
 
 @media (max-width: 675px) {
+  .proj {
+    padding-bottom: 60px;
+  }
+
   .proj__grid {
     grid-template-rows: repeat(3, auto);
   }
@@ -1395,7 +1412,7 @@ html:has(.menu__open) {
     width: 100%;
   }
 }
-
+/* ----------------------- */
 .rewies {
   padding-bottom: 286px;
   background-image: url(./img/rewiews-gradient1.png);
@@ -1471,6 +1488,10 @@ html:has(.menu__open) {
 .rewies__name {
 }
 .rewies__job {
+}
+
+.rewies__pagination {
+  display: none;
 }
 
 @media (max-width: 1452px) {
@@ -1558,7 +1579,31 @@ html:has(.menu__open) {
     margin: 0px;
     justify-content: center;
   }
+
+  .rewies__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pagination__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #343434;
+    transition: all 0.3s ease 0s;
+  }
+
+  .pagination__dot-active {
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+  }
 }
+
+/* --------------------------- */
 
 .form {
   padding-bottom: 117px;
