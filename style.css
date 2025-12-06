@@ -1413,6 +1413,9 @@ html:has(.menu__open) {
   }
 }
 /* ----------------------- */
+/* ДОБАВЛЯЕМ В СУЩЕСТВУЮЩИЕ СТИЛИ */
+/* Эти стили будут работать для обеих страниц */
+
 /* Стили слайдера для мобильных */
 .rewies__slider-mobile {
   display: none; /* По умолчанию скрыт */
@@ -1432,6 +1435,29 @@ html:has(.menu__open) {
   min-width: 100%;
   padding: 0 15px;
   box-sizing: border-box;
+}
+
+/* Пагинация - добавляем если её нет в общих стилях */
+.rewies__pagination {
+  display: none;
+  justify-content: center;
+  margin-top: 24px;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #343434;
+  transition: all 0.3s ease 0s;
+}
+
+.pagination__dot-active {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
 }
 
 /* Стили для десктопа - оригинальные стили остаются без изменений */
@@ -1461,13 +1487,9 @@ html:has(.menu__open) {
     display: block;
   }
 
-  /* Адаптация пагинации для мобильных */
+  /* Показываем пагинацию на мобильных */
   .rewies__pagination {
     display: flex !important;
-    justify-content: center;
-    margin-top: 24px;
-    align-items: center;
-    gap: 8px;
   }
 
   /* Убираем оригинальное позиционирование для слайдов */
