@@ -2,7 +2,47 @@ document.addEventListener("DOMContentLoaded", function () {
   // Текущее воспроизводимое видео
   let currentVideo = null;
 
-  // Обработчик клика на кнопки play
+  // Функция для обработки клика на картинку/видео/контейнер
+  function handleVideoToggle(container) {
+    const img = container.querySelector(".team__img");
+    const button = container.querySelector(".play__btn");
+
+    if (!button) return; // Если нет кнопки, выходим
+
+    const icon = button.querySelector("img");
+
+    // Симулируем клик на кнопке play
+    button.click();
+  }
+
+  // Обработчик клика на картинки
+  document.querySelectorAll(".team__img-container").forEach((container) => {
+    // Клик на картинку
+    const img = container.querySelector(".team__img");
+    if (img) {
+      img.addEventListener("click", function (e) {
+        e.stopPropagation();
+        handleVideoToggle(container);
+      });
+
+      // Делаем картинку кликабельной
+      img.style.cursor = "pointer";
+    }
+
+    // Клик на само видео (когда оно воспроизводится)
+    container.addEventListener("click", function (e) {
+      // Проверяем, был ли клик на видео элементе
+      if (
+        e.target.tagName === "VIDEO" ||
+        (e.target.classList && e.target.classList.contains("team__video"))
+      ) {
+        e.stopPropagation();
+        handleVideoToggle(container);
+      }
+    });
+  });
+
+  // Обработчик клика на кнопки play (оригинальный код)
   document.querySelectorAll(".play__btn").forEach((button) => {
     button.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -29,10 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Создаем видео элемент
         video = document.createElement("video");
         video.classList.add("team__video");
-        video.loop = false; // УБИРАЕМ ЗАЦИКЛИВАНИЕ
+        video.loop = false;
         video.playsInline = true;
 
-        // Заменяем src картинки на видео (предполагаем, что видео есть в той же папке с похожим названием)
+        // Заменяем src картинки на видео
         const imgSrc = img.getAttribute("src");
         const videoName = imgSrc
           .replace(".png", ".mp4")
@@ -46,9 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
         video.style.width = "100%";
         video.style.height = "100%";
         video.style.objectFit = "cover";
-        video.style.borderRadius = "30px"; // Начальное значение как у картинки
+        video.style.borderRadius = "30px";
         video.style.transition = "border-radius 0.5s ease";
-        video.style.zIndex = "1"; // Чтобы было поверх кнопки
+        video.style.zIndex = "1";
+        video.style.cursor = "pointer"; // Делаем видео кликабельным
 
         // Сохраняем оригинальный border-radius
         const originalBorderRadius = window.getComputedStyle(img).borderRadius;
@@ -90,18 +131,15 @@ document.addEventListener("DOMContentLoaded", function () {
               container: container,
             };
 
-            // ДОБАВЛЯЕМ ОБРАБОТЧИК ОКОНЧАНИЯ ВИДЕО
+            // Обработчик окончания видео
             video.addEventListener("ended", function onVideoEnded() {
-              // Автоматически ставим на паузу и скрываем видео
               pauseVideo(video, img, icon, container);
               currentVideo = null;
-              // Удаляем обработчик, чтобы не накапливались
               video.removeEventListener("ended", onVideoEnded);
             });
           })
           .catch((error) => {
             console.error("Ошибка воспроизведения видео:", error);
-            // В случае ошибки удаляем видео
             video.remove();
             img.style.opacity = "1";
           });
@@ -110,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (video.paused) {
           // Проверяем, закончилось ли видео
           if (video.ended) {
-            // Если видео закончилось, перематываем в начало
             video.currentTime = 0;
           }
 
@@ -132,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
               container: container,
             };
 
-            // ДОБАВЛЯЕМ ОБРАБОТЧИК ОКОНЧАНИЯ ВИДЕО
+            // Обработчик окончания видео
             video.addEventListener("ended", function onVideoEnded() {
               pauseVideo(video, img, icon, container);
               currentVideo = null;
