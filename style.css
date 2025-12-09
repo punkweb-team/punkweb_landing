@@ -1130,7 +1130,7 @@ html:has(.menu__open) {
   }
 }
 
-.serv {
+.brand__serv {
   padding-top: 240px;
 }
 
@@ -1220,7 +1220,7 @@ html:has(.menu__open) {
 }
 
 @media (max-width: 1080px) {
-  .serv {
+  .brand__serv {
     padding-top: 80px;
   }
 
