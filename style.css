@@ -219,13 +219,37 @@ html:has(.menu__open) {
   align-items: center;
   text-align: center;
 }
-.home__img {
-  width: 228px;
-  height: 120px;
+
+/* Стили для видео */
+.home__video {
   border-radius: 20px;
   object-fit: cover;
+  background-color: #000; /* Черный фон на случай если видео не загрузится */
+}
+
+.home__video-small {
+  width: 228px;
+  height: 120px;
   margin-bottom: 39px;
 }
+
+.home__video-big {
+  width: 100%;
+  max-width: 1000px;
+  height: 500px; /* Задаем фиксированную высоту или auto */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.home__video-animated {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+  will-change: transform, width, height, border-radius;
+  object-fit: cover;
+  background-color: #000;
+}
+
 .home__title {
   color: #8eeb21;
   margin-bottom: 20px;
@@ -246,36 +270,23 @@ html:has(.menu__open) {
   text-align: left;
   margin-bottom: 162px;
 }
-.home__img-big {
-  width: 100%;
-  max-width: 1000px;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.home__img-animated {
-  position: fixed;
-  z-index: 1000;
-  pointer-events: none;
-  will-change: transform, width, height, border-radius;
-  object-fit: cover;
-}
 
 @media (max-width: 1080px) {
   .home {
     padding-top: 32px;
     padding-bottom: 80px;
   }
-  .home__img {
+
+  .home__video-small {
     width: 168px;
     height: 88px;
     margin-bottom: 24px;
     border-radius: 12px;
   }
 
-  .home__img-big {
+  .home__video-big {
     border-radius: 12px;
+    height: 300px; /* Меньшая высота на мобильных */
   }
 
   .home__title {
@@ -298,12 +309,17 @@ html:has(.menu__open) {
     display: none;
   }
 }
+
 @media (max-width: 675px) {
   .home__description {
     font-size: 14px;
   }
   .home__btn {
     margin-bottom: 60px;
+  }
+
+  .home__video-big {
+    height: 200px; /* Еще меньше на очень маленьких экранах */
   }
 }
 /* --------------------- */
