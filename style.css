@@ -490,12 +490,26 @@ html:has(.menu__open) {
   background: var(--gray, #151b1a);
   align-items: center;
 }
-.path__img {
+
+/* Контейнер для видео */
+.path__video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #000; /* Черный фон на случай если видео не загрузится */
+}
+
+/* Стили для видео */
+.path__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
+  display: block;
 }
+
 .path__col {
   display: flex;
   flex-direction: column;
@@ -520,8 +534,11 @@ html:has(.menu__open) {
     border-radius: 16px;
     gap: 24px;
   }
-  .path__img {
+  .path__video-container {
     width: 335px;
+    border-radius: 8px;
+  }
+  .path__video {
     border-radius: 8px;
   }
 
@@ -539,8 +556,13 @@ html:has(.menu__open) {
     flex-direction: column;
   }
 
-  .path__img {
+  .path__video-container {
     width: 100%;
+    height: 200px; /* Фиксированная высота для мобильных */
+  }
+
+  .path__video {
+    height: 200px;
   }
 }
 /* ---------------------- */
