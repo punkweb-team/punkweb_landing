@@ -55,6 +55,7 @@ function initAnimation() {
     const smallRect = smallImg.getBoundingClientRect();
     const bigRect = bigImg.getBoundingClientRect();
     const homeRect = homeSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
     // Рассчитываем относительные позиции внутри секции
     const startTop = smallRect.top - homeRect.top;
@@ -84,15 +85,22 @@ function initAnimation() {
     animatedImg.style.opacity = "1";
     animatedImg.style.display = "block";
 
-    // Рассчитываем, сколько нужно проскроллить от начала секции
-    const totalScrollDistance = homeRect.height * 0.6; // 60% высоты секции
+    // Рассчитываем, сколько нужно проскроллить
+    // Начинаем анимацию, когда маленькая картинка на 30% от верха экрана
+    const startOffset = startTop - windowHeight * 0.3;
+
+    // Заканчиваем анимацию, когда большая картинка на 50% от верха экрана (центр)
+    const endOffset = endTop - windowHeight * 0.5;
+
+    // Дистанция анимации
+    const animationDistance = Math.abs(endOffset - startOffset);
 
     // Создаем анимацию
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: homeSection,
-        start: "top top",
-        end: `+=${totalScrollDistance}`,
+        start: `top+=${Math.max(0, startOffset)} top`, // Начинаем когда картинка на 30% от верха
+        end: `top+=${Math.max(0, endOffset)} top`, // Заканчиваем когда на 50% от верха (центр)
         scrub: true,
         markers: false, // Для отладки можно поставить true
         onUpdate: (self) => {
