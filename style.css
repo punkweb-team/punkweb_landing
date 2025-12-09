@@ -250,7 +250,18 @@ html:has(.menu__open) {
   width: 100%;
   max-width: 1000px;
   height: 100%;
+  opacity: 0;
+  visibility: hidden;
 }
+
+.home__img-animated {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  will-change: transform, width, height, border-radius;
+  object-fit: cover;
+}
+
 @media (max-width: 1080px) {
   .home {
     padding-top: 32px;
