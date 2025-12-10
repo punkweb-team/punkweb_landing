@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         video.style.objectFit = "cover";
         video.style.borderRadius = "30px";
         video.style.transition = "border-radius 0.5s ease";
-        video.style.zIndex = "1";
+        video.style.zIndex = "0";
         video.style.cursor = "pointer"; // Делаем видео кликабельным
 
         // Сохраняем оригинальный border-radius
