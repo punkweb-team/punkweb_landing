@@ -121,6 +121,7 @@ function initAnimation() {
         markers: false,
         onUpdate: (self) => {
           const progress = self.progress;
+          console.log(progress, "progress");
 
           // Рассчитываем текущие значения
           const currentTop = startTop + deltaY * progress;
