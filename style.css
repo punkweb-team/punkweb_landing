@@ -139,7 +139,7 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
   padding: 24px;
-  z-index: 100;
+  z-index: 9999;
   transition: all 0.3s ease 0s;
   opacity: 0;
   visibility: hidden;
