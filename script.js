@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dots.forEach((dot, index) => {
         // Удаляем старые обработчики
         const newDot = dot.cloneNode(true);
-        dot.parentNode.replaceChild(newDot, dot);
+        dot.parentNode?.replaceChild(newDot, dot);
       });
     }
 
