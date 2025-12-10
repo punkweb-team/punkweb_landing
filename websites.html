@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./animation.js" defer></script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__row">
+          <button class="header__burger">
+            <svg
+              width="24"
+              height="16"
+              viewBox="0 0 24 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22.3333 13C23.0697 13 23.6667 13.597 23.6667 14.3333C23.6667 15.0697 23.0697 15.6667 22.3333 15.6667H1.33333C0.596954 15.6667 0 15.0697 0 14.3333C0 13.597 0.596954 13 1.33333 13H22.3333ZM22.3333 6.5C23.0697 6.5 23.6667 7.09695 23.6667 7.83333C23.6667 8.56971 23.0697 9.16667 22.3333 9.16667H1.33333C0.596954 9.16667 0 8.56971 0 7.83333C0 7.09695 0.596954 6.5 1.33333 6.5H22.3333ZM22.3333 0C23.0697 0 23.6667 0.596954 23.6667 1.33333C23.6667 2.06971 23.0697 2.66667 22.3333 2.66667H1.33333C0.596954 2.66667 0 2.06971 0 1.33333C0 0.596954 0.596954 0 1.33333 0H22.3333Z"
+                fill="#F8F8F8"
+              />
+            </svg>
+          </button>
+          <a href="./index.html" class="header__logo">
+            <img src="./img/logo.svg" alt=""
+          /></a>
+
+          <nav class="header__nav">
+            <a href="#work" class="text-18 header__link header__link-active"
+              >как работаем</a
+            >
+            <a href="#services" class="text-18 header__link">услуги</a>
+            <a href="#projects" class="text-18 header__link">проекты</a>
+            <a href="#reviews" class="text-18 header__link">отзывы</a>
+          </nav>
+          <a href="#form" class="btn btn-s header__btn">
+            <span class="text-18">Обсудить проект</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <section class="home">
+        <div class="container">
+          <div class="home__column">
+            <!-- Маленькое видео вместо картинки -->
+            <video
+              src="./video/Сайты/сайты главная анимация.MOV"
+              class="home__video home__video-small"
+              playsinline
+              muted
+              loop
+              autoplay
+            ></video>
+
+            <h2 class="home__title">Создадим сайт</h2>
+            <p class="text-24 home__description">
+              Поддерживаем ваше digital-присутствие: от лендинга <br />
+              до многостраничного сайта
+            </p>
+            <button class="btn btn-l home__btn">Обсудить проект</button>
+            <div
+              class="home__voice voice"
+              data-audio-src="./voice/websites.mp3"
+            >
+              <div class="voice__img-container">
+                <img src="./img/team4.png" alt="" class="voice__img" />
+              </div>
+              <div class="voice__main">
+                <div class="voice__progress">
+                  <button class="voice__btn">
+                    <img src="./img/play.svg" alt="" />
+                  </button>
+                  <div class="voice__lines">
+                    <div class="voice__line voice__line-s"></div>
+                    <div class="voice__line voice__line-s"></div>
+                    <div class="voice__line voice__line-m"></div>
+                    <div class="voice__line voice__line-xm"></div>
+                    <div class="voice__line voice__line-xl"></div>
+                    <div class="voice__line voice__line-l"></div>
+                    <div class="voice__line voice__line-m"></div>
+                    <div class="voice__line voice__line-xm"></div>
+                    <div class="voice__line voice__line-xl"></div>
+                    <div class="voice__line voice__line-l"></div>
+                    <div class="voice__line voice__line-m"></div>
+                    <div class="voice__line voice__line-xm"></div>
+                    <div class="voice__line voice__line-xl"></div>
+                    <div class="voice__line voice__line-l"></div>
+                    <div class="voice__line voice__line-m"></div>
+                    <div class="voice__line voice__line-xm"></div>
+                    <div class="voice__line voice__line-xl"></div>
+                    <div class="voice__line voice__line-l"></div>
+                    <div class="voice__line voice__line-m"></div>
+                    <div class="voice__line voice__line-xm"></div>
+                    <div class="voice__line voice__line-xl"></div>
+                    <div class="voice__line voice__line-l"></div>
+                    <div class="voice__line voice__line-m"></div>
+                    <div class="voice__line voice__line-s"></div>
+                    <div class="voice__line voice__line-s"></div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-18 voice__person">
+                Катя, <br />
+                маркетолог
+              </p>
+            </div>
+
+            <!-- Большое видео вместо картинки -->
+            <video
+              src="./video/Сайты/сайты главная анимация.MOV"
+              class="home__video home__video-big"
+              playsinline
+              muted
+              loop
+              autoplay
+            ></video>
+          </div>
+        </div>
+      </section>
+      <section class="work" id="work">
+        <div class="container">
+          <h2 class="work__title">Как мы работаем</h2>
+          <div class="work__body">
+            <div class="work__li">
+              <p class="text-14 work__number">01</p>
+              <div class="work__info">
+                <h3 class="work__heading">Бриф-сессия</h3>
+                <p class="text-18 work__description">
+                  45–60 минут, оформляем ТЗ <br />
+                  и критерии приёмки
+                </p>
+              </div>
+            </div>
+            <div class="work__li">
+              <p class="text-14 work__number">02</p>
+              <div class="work__info">
+                <h3 class="work__heading">Рефборд и рамки</h3>
+                <p class="text-18 work__description">
+                  Cвежесть решений и бренд риски
+                </p>
+              </div>
+            </div>
+            <div class="work__li">
+              <p class="text-14 work__number">03</p>
+              <div class="work__info">
+                <h3 class="work__heading">Направление визуала</h3>
+                <p class="text-18 work__description">
+                  2–3 концепции → защита → выбор направления
+                </p>
+              </div>
+            </div>
+            <div class="work__li">
+              <p class="text-14 work__number">04</p>
+              <div class="work__info">
+                <h3 class="work__heading">Продакшн</h3>
+                <p class="text-18 work__description">
+                  Айдентика → лендинг → соцсети/мерч/раздатка
+                </p>
+              </div>
+            </div>
+            <div class="work__li">
+              <p class="text-14 work__number">05</p>
+              <div class="work__info">
+                <h3 class="work__heading">Коммуникация</h3>
+                <p class="text-18 work__description">
+                  Еженедельные встречи <br />
+                  и статусные письма
+                </p>
+              </div>
+            </div>
+            <div class="work__li">
+              <p class="text-14 work__number">06</p>
+              <div class="work__info">
+                <h3 class="work__heading">Сдача</h3>
+                <p class="text-18 work__description">
+                  Предоставляем исходники, бренд-гайд
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="rewies__slider-mobile rewies__slider-mobile--partial">
+            <div class="rewies__slider-track rewies__slider-track--partial">
+              <div class="rewies__slide">
+                <div class="work__li">
+                  <p class="text-14 work__number">01</p>
+                  <div class="work__info">
+                    <h3 class="work__heading">Бриф-сессия</h3>
+                    <p class="text-18 work__description">
+                      45–60 минут, оформляем ТЗ <br />
+                      и критерии приёмки
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="rewies__slide">
+                <div class="work__li">
+                  <p class="text-14 work__number">02</p>
+                  <div class="work__info">
+                    <h3 class="work__heading">Рефборд и рамки</h3>
+                    <p class="text-18 work__description">
+                      Cвежесть решений и бренд риски
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="rewies__slide">
+                <div class="work__li">
+                  <p class="text-14 work__number">03</p>
+                  <div class="work__info">
+                    <h3 class="work__heading">Направление визуала</h3>
+                    <p class="text-18 work__description">
+                      2–3 концепции → защита → выбор направления
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="rewies__slide">
+                <div class="work__li">
+                  <p class="text-14 work__number">04</p>
+                  <div class="work__info">
+                    <h3 class="work__heading">Продакшн</h3>
+                    <p class="text-18 work__description">
+                      Айдентика → лендинг → соцсети/мерч/раздатка
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="rewies__slide">
+                <div class="work__li">
+                  <p class="text-14 work__number">05</p>
+                  <div class="work__info">
+                    <h3 class="work__heading">Коммуникация</h3>
+                    <p class="text-18 work__description">
+                      Еженедельные встречи <br />
+                      и статусные письма
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="rewies__slide">
+                <div class="work__li">
+                  <p class="text-14 work__number">06</p>
+                  <div class="work__info">
+                    <h3 class="work__heading">Сдача</h3>
+                    <p class="text-18 work__description">
+                      Предоставляем исходники, бренд-гайд
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rewies__pagination">
+              <div class="pagination__dot pagination__dot-active"></div>
+              <div class="pagination__dot"></div>
+              <div class="pagination__dot"></div>
+              <div class="pagination__dot"></div>
+              <div class="pagination__dot"></div>
+              <div class="pagination__dot"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="path" id="services">
+        <div class="container">
+          <div class="path__body">
+            <div class="path__item">
+              <div class="path__video-container">
+                <video
+                  class="path__video"
+                  src="./video/Сайты/лендосы.MP4"
+                  playsinline
+                  muted
+                  loop
+                  autoplay
+                  preload="metadata"
+                ></video>
+              </div>
+              <div class="path__col">
+                <h2 class="path__title">Лендинг</h2>
+                <p class="text-24 path__text">
+                  Один экран — одно действие. Мы делаем лендинги, которые ведут
+                  пользователя к целевому действию: подписке, заявке, покупке.
+                  Чёткая структура, эмоциональный дизайн, правильные акценты —
+                  всё, чтобы конверсия росла.
+                </p>
+              </div>
+            </div>
+
+            <div class="path__item">
+              <div class="path__video-container">
+                <video
+                  class="path__video"
+                  src="./video/Сайты/многостраничник.MP4"
+                  playsinline
+                  muted
+                  loop
+                  autoplay
+                  preload="metadata"
+                ></video>
+              </div>
+              <div class="path__col">
+                <h2 class="path__title">Сайт</h2>
+                <p class="text-24 path__text">
+                  Когда вашему бизнесу нужно рассказать больше, чем умещается
+                  в один экран. Мы создаём продуманные сайты с понятной
+                  навигацией, логикой и визуальной системой.
+                </p>
+              </div>
+            </div>
+
+            <div class="path__item">
+              <div class="path__video-container">
+                <video
+                  class="path__video"
+                  src="./video/Сайты/UI.MP4"
+                  playsinline
+                  muted
+                  loop
+                  autoplay
+                  preload="metadata"
+                ></video>
+              </div>
+              <div class="path__col">
+                <h2 class="path__title">UX-UI Дизайн</h2>
+                <p class="text-24 path__text">
+                  Мы проектируем интуитивно понятные интерфейсы. От CJM
+                  и прототипов до финальных макетов — каждый экран подчинён цели
+                  и сценарию взаимодействия.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="proj brand__proj" id="projects">
+        <div class="container">
+          <h2 class="proj__title">Любимые проекты</h2>
+          <div class="proj__column">
+            <a
+              href="https://dprofile.ru/case/125236/refstroiservis"
+              target="_blank"
+              class="proj__item"
+            >
+              <div class="proj__grid">
+                <img src="./img/refstroy1.png" alt="" />
+                <img src="./img/refstroy2.png" alt="" />
+                <img src="./img/refstroy3.png" alt="" />
+                <img src="./img/refstroy4.png" alt="" />
+                <img src="./img/refstroy5.png" alt="" />
+              </div>
+              <div class="proj__row">
+                <div class="proj__left">
+                  <h3 class="proj__name">Рефстройсервис</h3>
+                  <p class="text-24 proj__text">UI/UX, разработка сайта</p>
+                </div>
+                <div
+                  class="proj__right voice"
+                  data-audio-src="./voice/natasha_voice.mp3"
+                >
+                  <div class="voice__img-container">
+                    <img src="./img/team3.png" alt="" class="voice__img" />
+                  </div>
+                  <div class="voice__main">
+                    <div class="voice__progress">
+                      <button class="voice__btn">
+                        <img src="./img/play.svg" alt="" />
+                      </button>
+                      <div class="voice__lines">
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-18 voice__person">
+                    Наташа, <br />
+                    проджект-менеджер
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a
+              href="https://dprofile.ru/carbonara"
+              target="_blank"
+              class="proj__item"
+            >
+              <div class="proj__grid">
+                <img src="./img/vibe1.png" alt="" />
+                <img src="./img/vibe2.png" alt="" />
+                <img src="./img/vibe3.png" alt="" />
+                <img src="./img/vibe4.png" alt="" />
+                <img src="./img/vibe5.png" alt="" />
+              </div>
+              <div class="proj__row">
+                <div class="proj__left">
+                  <h3 class="proj__name">
+                    Молодёжное сообщество <br />
+                    «Дирекция вайба»
+                  </h3>
+                  <p class="text-24 proj__text">
+                    Брендинг, оформление соцсетей
+                  </p>
+                </div>
+                <div
+                  class="proj__right voice"
+                  data-audio-src="./voice/alexandra_voice.mp3"
+                >
+                  <div class="voice__img-container">
+                    <img src="./img/team8.png" alt="" class="voice__img" />
+                  </div>
+                  <div class="voice__main">
+                    <div class="voice__progress">
+                      <button class="voice__btn">
+                        <img src="./img/play.svg" alt="" />
+                      </button>
+                      <div class="voice__lines">
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-18 voice__person">
+                    Саша, <br />
+                    проджект-менеджер
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a
+              href="https://dprofile.ru/case/140659/cuplab-izgotovlenie-i-brendirovanie-termokruzek"
+              target="_blank"
+              class="proj__item"
+            >
+              <div class="proj__grid">
+                <img src="./img/cup1.png" alt="" />
+                <img src="./img/cup2.png" alt="" />
+                <img src="./img/cup3.png" alt="" />
+                <img src="./img/cup4.png" alt="" />
+              </div>
+              <div class="proj__row">
+                <div class="proj__left">
+                  <h3 class="proj__name">CUPLAB</h3>
+                  <p class="text-24 proj__text">
+                    Лого, нейминг, UI/UX, сайт и 3d модели
+                  </p>
+                </div>
+                <div class="proj__right voice">
+                  <div class="voice__img-container">
+                    <img src="./img/team6.png" alt="" class="voice__img" />
+                  </div>
+                  <div class="voice__main">
+                    <div class="voice__progress">
+                      <button class="voice__btn">
+                        <img src="./img/play.svg" alt="" />
+                      </button>
+                      <div class="voice__lines">
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-18 voice__person">
+                    Настя, <br />
+                    дизайнер
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a
+              href="https://dprofile.ru/case/142544/stonehenge-finansovyi-dvoreckii"
+              target="_blank"
+              class="proj__item"
+            >
+              <div class="proj__grid">
+                <img src="./img/stone1.png" alt="" />
+                <img src="./img/stone2.png" alt="" />
+                <img src="./img/stone3.png" alt="" />
+                <img src="./img/stone4.png" alt="" />
+                <img src="./img/stone5.png" alt="" />
+              </div>
+              <div class="proj__row">
+                <div class="proj__left">
+                  <h3 class="proj__name">
+                    Stonehenge - <br />
+                    финансовый дворецкий
+                  </h3>
+                  <p class="text-24 proj__text">Брендинг, UI/UX</p>
+                </div>
+                <div class="proj__right voice">
+                  <div class="voice__img-container">
+                    <img src="./img/team1.png" alt="" class="voice__img" />
+                  </div>
+                  <div class="voice__main">
+                    <div class="voice__progress">
+                      <button class="voice__btn">
+                        <img src="./img/play.svg" alt="" />
+                      </button>
+                      <div class="voice__lines">
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-xm"></div>
+                        <div class="voice__line voice__line-xl"></div>
+                        <div class="voice__line voice__line-l"></div>
+                        <div class="voice__line voice__line-m"></div>
+                        <div class="voice__line voice__line-s"></div>
+                        <div class="voice__line voice__line-s"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-18 voice__person">
+                    Антон, <br />
+                    CEO студии
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="rewies" id="reviews">
+        <div class="container">
+          <h2 class="rewies__title">
+            Cпросили
+            <img src="./img/comment.svg" alt="" /> клиентов,
+            за&nbsp;что&nbsp;они нас любят
+          </h2>
+
+          <!-- Оригинальная структура для десктопа -->
+          <div class="rewies__column">
+            <div class="rewies__row">
+              <div class="rewies__item">
+                <div class="rewies__body">
+                  <p class="text-24 rewies__text">
+                    Коллеги, спасибо за масштабную проделанную работу!
+                    Вы команда профессионалов, которая за счёт синергии
+                    и экспертности, смогли сделать классный продукт. Наши
+                    клиенты по достоинству оценили работу. Спасибо, что делаете
+                    этот мир, немножечко лучше ❤️
+                  </p>
+                </div>
+                <div class="rewies__author">
+                  <img src="./img/rewiew1.svg" alt="" class="rewies__img" />
+                  <div class="rewies__info">
+                    <p class="text-18 rewies__name">Наталья</p>
+                    <p class="text-14 rewies__job">Владелица бизнеса</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rewies__row">
+              <div class="rewies__item">
+                <div class="rewies__body">
+                  <p class="text-24 rewies__text">
+                    Пришли за сайтом для спецпроекта. Команда сразу подхватила
+                    нашу молодёжную специфику и предложила свежий и яркий
+                    дизайн. Всё сделали быстро, всегда были на связи и сами
+                    предлагали решения. Ребята супер, получили именно то,
+                    что хотели — и даже больше.
+                  </p>
+                </div>
+                <div class="rewies__author">
+                  <img src="./img/rewiew2.svg" alt="" class="rewies__img" />
+                  <div class="rewies__info">
+                    <p class="text-18 rewies__name">Ирина</p>
+                    <p class="text-14 rewies__job">Маркетолог</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rewies__row">
+              <div class="rewies__item">
+                <div class="rewies__body">
+                  <p class="text-24 rewies__text">
+                    Обращался с просьбой разработать нейминг, лого, брендинг,
+                    тг-сообщество, а ещё лендинг и карточки для маркетплейсов.
+                    Ребята настоящие профессионалы, имеют современный и стильный
+                    подход, очень помогали советами и предложениями в процессе
+                    работы, быстро реагировали на мои пожелания и классно
+                    воплощали их в жизнь)
+                  </p>
+                </div>
+                <div class="rewies__author">
+                  <img src="./img/rewiew4.svg" alt="" class="rewies__img" />
+                  <div class="rewies__info">
+                    <p class="text-18 rewies__name">Мария</p>
+                    <p class="text-14 rewies__job">Директор по развитию</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Слайдер для мобильных (скрыт на десктопе) -->
+          <div class="rewies__slider-mobile">
+            <div class="rewies__slider-track">
+              <div class="rewies__slide">
+                <div class="rewies__item">
+                  <div class="rewies__body">
+                    <p class="text-24 rewies__text">
+                      Коллеги, спасибо за масштабную проделанную работу!
+                      Вы команда профессионалов, которая за счёт синергии
+                      и экспертности, смогли сделать классный продукт. Наши
+                      клиенты по достоинству оценили работу. Спасибо,
+                      что делаете этот мир, немножечко лучше ❤️
+                    </p>
+                  </div>
+                  <div class="rewies__author">
+                    <img src="./img/rewiew1.svg" alt="" class="rewies__img" />
+                    <div class="rewies__info">
+                      <p class="text-18 rewies__name">Наталья</p>
+                      <p class="text-14 rewies__job">Владелица бизнеса</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rewies__slide">
+                <div class="rewies__item">
+                  <div class="rewies__body">
+                    <p class="text-24 rewies__text">
+                      Пришли за сайтом для спецпроекта. Команда сразу подхватила
+                      нашу молодёжную специфику и предложила свежий и яркий
+                      дизайн. Всё сделали быстро, всегда были на связи и сами
+                      предлагали решения. Ребята супер, получили именно то,
+                      что хотели — и даже больше.
+                    </p>
+                  </div>
+                  <div class="rewies__author">
+                    <img src="./img/rewiew2.svg" alt="" class="rewies__img" />
+                    <div class="rewies__info">
+                      <p class="text-18 rewies__name">Ирина</p>
+                      <p class="text-14 rewies__job">Маркетолог</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rewies__slide">
+                <div class="rewies__item">
+                  <div class="rewies__body">
+                    <p class="text-24 rewies__text">
+                      Обращался с просьбой разработать нейминг, лого, брендинг,
+                      тг-сообщество, а ещё лендинг и карточки для маркетплейсов.
+                      Ребята настоящие профессионалы, имеют современный
+                      и стильный подход, очень помогали советами и предложениями
+                      в процессе работы, быстро реагировали на мои пожелания
+                      и классно воплощали их в жизнь)
+                    </p>
+                  </div>
+                  <div class="rewies__author">
+                    <img src="./img/rewiew4.svg" alt="" class="rewies__img" />
+                    <div class="rewies__info">
+                      <p class="text-18 rewies__name">Мария</p>
+                      <p class="text-14 rewies__job">Директор по развитию</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rewies__pagination">
+              <div class="pagination__dot pagination__dot-active"></div>
+              <div class="pagination__dot"></div>
+              <div class="pagination__dot"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="form" class="form brand__form">
+        <div class="container">
+          <div class="form__body">
+            <div class="form__left">
+              <h2 class="form__title">
+                Расскажите о&nbsp;вашей&nbsp;<span class="form__green"
+                  >задаче</span
+                >, и&nbsp;мы предложим <span class="form__green">решение</span>
+              </h2>
+              <div class="form__img-container">
+                <img src="./img/team1.png" alt="" class="form__img" />
+                <button class="form-play__btn">
+                  <img src="./img/play-white.svg" alt="" />
+                </button>
+              </div>
+            </div>
+            <form action="" class="form__main">
+              <input
+                type="text"
+                placeholder="Как к вам обращаться?"
+                class="form__input"
+              />
+              <input
+                type="email"
+                placeholder="your-mail@mail.info"
+                class="form__input"
+              />
+              <input
+                type="tel"
+                placeholder="+7 999 999-99-99"
+                class="form__input"
+              />
+              <div class="form__checkbox">
+                <button type="button" class="form__checkbox-btn">
+                  <img src="./img/check.svg" alt="" />
+                </button>
+                <p class="text-18 form__checkbox-text">
+                  Я ознакомился с политикой конфиденциальности и согласен
+                  с обработкой персональных данных
+                </p>
+              </div>
+              <button class="btn btn-l form__btn" type="submit">
+                <span class="text-24">Отправить</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="serv brand__serv">
+        <div class="container">
+          <h2 class="serv__title">
+            Чем мы можем быть <br />
+            полезны <img src="./img/hands.svg" alt="" />
+          </h2>
+          <div class="serv__row">
+            <a href="./branding.html" class="serv__item">
+              <img src="./gif/кружка брендинг.gif" alt="" class="serv__img" />
+              <h3 class="serv__name">Брендинг</h3>
+              <div class="serv__tags">
+                <div class="serv__tag">
+                  <span class="text-18">Нейминг</span>
+                </div>
+                <div class="serv__tag">
+                  <span class="text-18">Логотип</span>
+                </div>
+                <div class="serv__tag">
+                  <span class="text-18">Брендбук</span>
+                </div>
+                <div class="serv__tag">
+                  <span class="text-18">Фирменный стиль</span>
+                </div>
+              </div>
+            </a>
+            <a href="./communications.html" class="serv__item">
+              <img src="./gif/коммуникации гиф.gif" alt="" class="serv__img" />
+              <h3 class="serv__name">Коммуникации</h3>
+              <div class="serv__tags">
+                <div class="serv__tag">
+                  <span class="text-18">Креативы под рекламу</span>
+                </div>
+                <div class="serv__tag">
+                  <span class="text-18">Контент продакшн</span>
+                </div>
+                <div class="serv__tag">
+                  <span class="text-18">Оформление соцсетей</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__row">
+          <a
+            href="./docs/Пользовательское_соглашение_Панквеб.pdf"
+            class="text-18 footer__link"
+            target="_blank"
+            >пользовательское соглашение</a
+          >
+          <a
+            href="./docs/Политика_конфиденциальности_Панквеб.pdf"
+            class="text-18 footer__link"
+            target="_blank"
+            >политика конфиденциальности</a
+          >
+          <a
+            href="./docs/Согласие_на_обработку_персональных_данных_Панквеб.pdf"
+            class="text-18 footer__link"
+            target="_blank"
+            >согласие на обработку персональных данных</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <div class="menu">
+      <div class="menu__top">
+        <button class="menu__close">
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.6239 8.5026L16.5614 2.5651C16.8431 2.28381 17.0017 1.90209 17.002 1.50393C17.0024 1.10576 16.8445 0.72377 16.5632 0.441977C16.2819 0.160185 15.9002 0.00167771 15.5021 0.00132608C15.1039 0.000974453 14.7219 0.158807 14.4401 0.440102L8.5026 6.3776L2.5651 0.440102C2.28331 0.15831 1.90112 0 1.5026 0C1.10409 0 0.721895 0.15831 0.440102 0.440102C0.15831 0.721895 0 1.10409 0 1.5026C0 1.90112 0.15831 2.28331 0.440102 2.5651L6.3776 8.5026L0.440102 14.4401C0.15831 14.7219 0 15.1041 0 15.5026C0 15.9011 0.15831 16.2833 0.440102 16.5651C0.721895 16.8469 1.10409 17.0052 1.5026 17.0052C1.90112 17.0052 2.28331 16.8469 2.5651 16.5651L8.5026 10.6276L14.4401 16.5651C14.7219 16.8469 15.1041 17.0052 15.5026 17.0052C15.9011 17.0052 16.2833 16.8469 16.5651 16.5651C16.8469 16.2833 17.0052 15.9011 17.0052 15.5026C17.0052 15.1041 16.8469 14.7219 16.5651 14.4401L10.6239 8.5026Z"
+              fill="#F8F8F8"
+            />
+          </svg>
+        </button>
+        <div class="menu__col">
+          <a href="#work" class="text-24 menu__link">как работаем</a>
+          <a href="#services" class="text-24 menu__link">услуги</a>
+          <a href="#projects" class="text-24 menu__link">проекты</a>
+          <a href="#reviews" class="text-24 menu__link">отзывы</a>
+        </div>
+      </div>
+      <a class="btn btn-l menu__btn">
+        <span class="text-24">Обсудить проект</span>
+      </a>
+    </div>
+  </body>
+</html>
