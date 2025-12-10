@@ -369,7 +369,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!video) {
       video = document.createElement("video");
       video.classList.add("form__video");
-      video.src = img.src.replace(".png", ".mp4").replace("team", "video");
+      const imgSrc = img.getAttribute("src");
+      const videoName = imgSrc.replace(".png", ".mp4").replace("team", "video");
+      video.src = videoName;
       video.playsInline = true;
       video.loop = false;
 
