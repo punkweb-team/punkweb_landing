@@ -450,7 +450,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (sliderContainer) sliderContainer.style.display = "none";
 
         removeEventListeners();
-        stopAutoSlide();
         currentSlide = 0;
       }
     }
