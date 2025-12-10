@@ -406,7 +406,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentTranslate = 0;
     let prevTranslate = 0;
     let animationID;
-    let autoSlideInterval;
 
     // Определяем, это partial слайдер или обычный
     const isPartialSlider = section.querySelector(
@@ -431,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateSlider();
         addEventListeners();
-        if (!isPartialSlider) startAutoSlide(); // Для partial не включаем автослайд
+        // Для partial не включаем автослайд
       } else {
         // Показываем оригинальную структуру
         const originalContent =
@@ -531,7 +530,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       currentSlide = slideIndex;
       updateSlider();
-      resetAutoSlide();
     }
 
     function updateSlider() {
@@ -566,26 +564,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       prevTranslate = translateX;
       currentTranslate = translateX;
-    }
-
-    function startAutoSlide() {
-      if (slides.length <= 1 || isPartialSlider) return;
-
-      autoSlideInterval = setInterval(() => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlider();
-      }, 5000);
-    }
-
-    function stopAutoSlide() {
-      if (autoSlideInterval) {
-        clearInterval(autoSlideInterval);
-      }
-    }
-
-    function resetAutoSlide() {
-      stopAutoSlide();
-      startAutoSlide();
     }
 
     // Инициализация
