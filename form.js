@@ -343,3 +343,126 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  let currentFormVideo = null;
+
+  function toggleFormVideo(container) {
+    const img = container.querySelector(".form__img");
+    const button = container.querySelector(".form-play__btn");
+    const icon = button.querySelector("img");
+
+    // Останавливаем предыдущее видео
+    if (currentFormVideo && currentFormVideo.container !== container) {
+      stopFormVideo(
+        currentFormVideo.video,
+        currentFormVideo.img,
+        currentFormVideo.icon,
+        currentFormVideo.container
+      );
+      currentFormVideo = null;
+    }
+
+    let video = container.querySelector("video");
+
+    // Если видео ещё нет — создаём
+    if (!video) {
+      video = document.createElement("video");
+      video.classList.add("form__video");
+      video.src = img.src.replace(".png", ".mp4").replace("team", "video");
+      video.playsInline = true;
+      video.loop = false;
+
+      Object.assign(video.style, {
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        borderRadius: "100px",
+        zIndex: "-1",
+        display: "block",
+        cursor: "pointer",
+      });
+
+      container.appendChild(video);
+
+      video.play().then(() => {
+        icon.src = "./img/pause-white.svg";
+
+        // Увеличение контейнера
+        container.style.transform = "scale(1.5)";
+        container.style.transition = "transform 0.4s ease";
+        // container.style.transformOrigin = "left bottom";
+
+        // Скрываем картинку
+        img.style.opacity = "0";
+
+        currentFormVideo = { video, img, icon, container };
+
+        video.addEventListener("ended", function onEnd() {
+          stopFormVideo(video, img, icon, container);
+          currentFormVideo = null;
+          video.removeEventListener("ended", onEnd);
+        });
+      });
+
+      return;
+    }
+
+    // Если видео есть и оно играет → пауза
+    if (!video.paused) {
+      stopFormVideo(video, img, icon, container);
+      currentFormVideo = null;
+      return;
+    }
+
+    // Если видео есть и на паузе → продолжить
+    video.play().then(() => {
+      icon.src = "./img/pause-white.svg";
+      img.style.opacity = "0";
+      container.style.transform = "scale(1.5)";
+
+      currentFormVideo = { video, img, icon, container };
+
+      video.addEventListener("ended", function onEnd() {
+        stopFormVideo(video, img, icon, container);
+        currentFormVideo = null;
+        video.removeEventListener("ended", onEnd);
+      });
+    });
+  }
+
+  function stopFormVideo(video, img, icon, container) {
+    video.pause();
+    icon.src = "./img/play-white.svg";
+
+    // Возвращаем нормальные стили
+    container.style.transform = "scale(1)";
+    img.style.opacity = "1";
+
+    // Убираем видео
+    setTimeout(() => {
+      video.remove();
+    }, 300);
+  }
+
+  // Навешиваем обработчики
+  document.querySelectorAll(".form__img-container").forEach((container) => {
+    const img = container.querySelector(".form__img");
+    const btn = container.querySelector(".form-play__btn");
+
+    img.style.cursor = "pointer";
+
+    img.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleFormVideo(container);
+    });
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleFormVideo(container);
+    });
+  });
+});
