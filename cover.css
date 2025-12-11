@@ -248,6 +248,7 @@ svg * {
     font-size: clamp(14px, 3vh, 16px);
     margin-top: 14px;
     max-width: 409px;
+    line-height: 120%;
   }
 
   .cover_wrap_content_title_icon {
