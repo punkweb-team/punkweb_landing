@@ -303,33 +303,30 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault(); // Предотвращаем стандартную отправку
 
     if (validateForm()) {
-      // Если форма валидна, можно отправить данные
-      console.log("Форма валидна, отправляем данные:");
-      console.log("Имя:", nameInput.value.trim());
-      console.log("Email:", emailInput.value.trim());
-      console.log("Телефон:", phoneInput.value.trim());
-      console.log("Согласие:", isCheckboxChecked);
+      const data = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+      };
 
-      // Здесь можно добавить отправку данных на сервер
-      // Например, с помощью fetch API
-
-      // Показываем сообщение об успехе
-      alert("Форма успешно отправлена!");
-
-      // Сбрасываем форму
-      form.reset();
-      isCheckboxChecked = false;
-      checkboxImg.src = "./img/box.png";
-      checkboxImg.alt = "Чекбокс не отмечен";
-
-      // Сбрасываем ошибки
-      Object.keys(fieldErrors).forEach((key) => (fieldErrors[key] = ""));
-      hideError();
-
-      // Убираем классы ошибок
-      [nameInput, emailInput, phoneInput].forEach((input) => {
-        input.classList.remove("form__input-error");
-      });
+      fetch("submit-form.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.success) {
+            alert("Форма успешно отправлена!");
+            form.reset();
+            isCheckboxChecked = false;
+            checkboxImg.src = "./img/box.png";
+            checkboxImg.alt = "Чекбокс не отмечен";
+          } else {
+            alert("Ошибка отправки: " + (res.error || "неизвестная"));
+          }
+        })
+        .catch((err) => alert("Ошибка отправки: " + err));
     }
   });
 
