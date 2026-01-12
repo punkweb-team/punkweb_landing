@@ -24,6 +24,9 @@ if (!$input || empty($input['name']) || empty($input['email']) || empty($input['
     exit;
 }
 
+// Устанавливаем временную зону Москва (MSK)
+date_default_timezone_set('Europe/Moscow');
+
 // Экранируем текст для HTML
 function h($s) {
     return htmlspecialchars($s, ENT_QUOTES | ENT_SUBSTITUTE);
@@ -36,7 +39,7 @@ $text .= "👤 <b>Имя:</b> " . h($input['name']) . "\n";
 $text .= "📧 <a href='mailto:" . h($input['email']) . "'>" . h($input['email']) . "</a>\n";
 $text .= "📱 <a href='tel:" . preg_replace('/\D/', '', $input['phone']) . "'>" . h($input['phone']) . "</a>\n";
 $text .= "────────────────────────\n";
-$text .= "🕒 " . date("d.m.Y H:i:s");
+$text .= "🕒 " . date("d.m.Y H:i:s"); // Вывод по МСК
 
 // URL Telegram API
 $url = "https://api.telegram.org/bot$token/sendMessage";

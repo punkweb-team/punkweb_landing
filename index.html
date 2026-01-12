@@ -38,8 +38,8 @@
     <meta name="twitter:image" content="/img/og-image.jpg" />
 
     <!-- FAVICON -->
-    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="icon" href="/img/favicon.svg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/img/favicon.png" />
 
     <!-- SEO USABILITY -->
     <link rel="canonical" href="https://ваш-домен.ru" />
@@ -82,7 +82,10 @@
               />
             </svg>
           </button>
-          <img src="./img/logo.svg" alt="" class="header__logo" />
+          <a href="./index.html" class="header__logo">
+            <img src="./img/logo.svg" alt="" />
+          </a>
+
           <nav class="header__nav">
             <a href="#projects" class="text-18 header__link">проекты</a>
             <div class="header__dropdown">
@@ -363,7 +366,10 @@
                     Лого, нейминг, UI/UX, сайт и 3d модели
                   </p>
                 </div>
-                <div class="proj__right voice">
+                <div
+                  class="proj__right voice"
+                  data-audio-src="./voice/nastya_voice.mp3"
+                >
                   <div class="voice__img-container">
                     <img src="./img/team6.png" alt="" class="voice__img" />
                   </div>

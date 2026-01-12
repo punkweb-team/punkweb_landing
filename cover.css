@@ -217,7 +217,7 @@ svg * {
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1199px) {
   .cover {
     min-height: 92.5dvh;
   }
