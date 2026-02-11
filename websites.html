@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -46,16 +46,41 @@
     <!-- FAVICON -->
     <link rel="icon" href="/img/favicon.svg" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/img/favicon.png" />
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106285030', 'ym');
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        ((k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a));
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js?id=106285030",
+        "ym",
+      );
 
-    ym(106285030, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
+      ym(106285030, "init", {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
     <!-- CANONICAL -->
     <link
       rel="canonical"
@@ -81,7 +106,14 @@
     <script src="./form.js" defer></script>
   </head>
   <body>
-      <noscript><div><img src="https://mc.yandex.ru/watch/106285030" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/106285030"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
     <header class="header">
       <div class="container">
         <div class="header__row">
@@ -947,6 +979,12 @@
             target="_blank"
             >согласие на обработку персональных данных</a
           >
+          <a
+            href="./docs/Политика_использования_cookies.docx"
+            class="text-18 footer__link"
+            target="_blank"
+            >политика использования cookies</a
+          >
         </div>
       </div>
     </footer>
@@ -979,15 +1017,35 @@
       </a>
     </div>
 
-    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite">
+    <div
+      class="cookie-banner"
+      id="cookie-banner"
+      role="dialog"
+      aria-live="polite"
+    >
       <p class="text-18 cookie-banner__text">
-        Наш сайт использует cookies и аналитику Яндекс.Метрики для улучшения качества обслуживания. Продолжая им пользоваться, вы соглашаетесь на обработку персональных данных в соответствии с
-        <a href="./docs/Политика_конфиденциальности_Панквеб.pdf" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a>
+        Наш сайт использует cookies и аналитику Яндекс.Метрики для улучшения
+        качества обслуживания. Продолжая им пользоваться, вы соглашаетесь на
+        обработку персональных данных в соответствии с
+        <a
+          href="./docs/Политика_конфиденциальности_Панквеб.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          >политикой конфиденциальности</a
+        >
         и
-        <a href="./docs/Политика_использования_cookies.docx" target="_blank" rel="noopener noreferrer">политикой использования cookies</a>.
-        Вы можете запретить сохранение cookie в настройках своего браузера.
+        <a
+          href="./docs/Политика_использования_cookies.docx"
+          target="_blank"
+          rel="noopener noreferrer"
+          >политикой использования cookies</a
+        >. Вы можете запретить сохранение cookie в настройках своего браузера.
       </p>
-      <button class="btn btn-s cookie-banner__accept" id="cookie-accept-btn" type="button">
+      <button
+        class="btn btn-s cookie-banner__accept"
+        id="cookie-accept-btn"
+        type="button"
+      >
         <span class="text-18">Принять</span>
       </button>
     </div>

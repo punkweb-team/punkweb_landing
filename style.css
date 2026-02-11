@@ -999,7 +999,9 @@ html:has(.menu__open) {
 }
 
 .voice__line {
-  transition: opacity 0.3s ease, background-color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .voice__lines:hover .voice__line {
@@ -1473,7 +1475,9 @@ html:has(.menu__open) {
 }
 
 .team__img {
-  transition: border-radius 0.5s ease, opacity 0.3s ease;
+  transition:
+    border-radius 0.5s ease,
+    opacity 0.3s ease;
   display: block; /* Убедитесь, что картинка отображается */
 }
 
@@ -2036,6 +2040,7 @@ html:has(.menu__open) {
 .footer__row {
   display: flex;
   gap: 34px;
+  flex-wrap: wrap;
 }
 .footer__link {
   opacity: 0.4;
@@ -2220,12 +2225,7 @@ html:has(.menu__open) {
   }
 
   .footer {
-    height: 125px;
-  }
-
-  .footer__row {
-    flex-direction: column;
-    gap: 6px;
+    height: 145px;
   }
 
   .footer {
@@ -2245,5 +2245,11 @@ html:has(.menu__open) {
 
   .cookie-banner__text {
     font-size: 12px;
+  }
+}
+@media (max-width: 570px) {
+  .footer__row {
+    flex-direction: column;
+    gap: 6px;
   }
 }
