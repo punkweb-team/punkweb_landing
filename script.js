@@ -102,6 +102,33 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  const cookieBanner = document.getElementById("cookie-banner");
+  const cookieAcceptBtn = document.getElementById("cookie-accept-btn");
+  const cookieStorageKey = "punkweb_cookie_accepted";
+
+  if (cookieBanner && cookieAcceptBtn) {
+    let isAccepted = false;
+
+    try {
+      isAccepted = localStorage.getItem(cookieStorageKey) === "1";
+    } catch (error) {
+      isAccepted = false;
+    }
+
+    if (isAccepted) {
+      cookieBanner.classList.add("cookie-banner--hidden");
+    }
+
+    cookieAcceptBtn.addEventListener("click", () => {
+      try {
+        localStorage.setItem(cookieStorageKey, "1");
+      } catch (error) {
+        // Игнорируем ошибки хранилища, чтобы не ломать UX.
+      }
+      cookieBanner.classList.add("cookie-banner--hidden");
+    });
+  }
 });
 
 class VoiceMessage {
