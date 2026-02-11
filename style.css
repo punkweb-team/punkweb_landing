@@ -2004,6 +2004,12 @@ html:has(.menu__open) {
 .form__checkbox-text {
 }
 
+.form__checkbox-text a {
+  color: #8eeb21;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .form__checkbox-btn img {
   transition: all 0.3s ease 0s;
 }
