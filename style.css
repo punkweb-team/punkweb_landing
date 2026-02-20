@@ -1956,6 +1956,32 @@ html:has(.menu__open) {
 .form-play__btn:hover {
   background: #0f3028;
 }
+
+.form-tg-btn {
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+  width: 37px;
+  height: 37px;
+  border-radius: 37px;
+  border: 5px solid var(--bg, #070808);
+  background: var(--secondary, #005b49);
+  transition: all 0.3s ease 0s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.form-tg-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+.form-tg-btn:hover {
+  background: #0f3028;
+}
+
 .form__main {
   display: flex;
   flex-direction: column;
