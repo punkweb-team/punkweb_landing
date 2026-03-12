@@ -243,7 +243,7 @@ html:has(.menu__open) {
 }
 /* ------------------ */
 .home {
-  padding-top: 15px;
+  padding-top: 100px;
   padding-bottom: 240px;
 }
 .home__column {
@@ -270,8 +270,6 @@ html:has(.menu__open) {
   width: 100%;
   max-width: 1000px;
   height: 500px; /* Задаем фиксированную высоту или auto */
-  opacity: 0;
-  visibility: hidden;
 }
 
 .home__video-animated {
