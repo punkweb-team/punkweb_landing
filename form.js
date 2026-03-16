@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentFormVideo.video,
         currentFormVideo.img,
         currentFormVideo.icon,
-        currentFormVideo.container
+        currentFormVideo.container,
       );
       currentFormVideo = null;
     }
@@ -367,7 +367,9 @@ document.addEventListener("DOMContentLoaded", function () {
       video = document.createElement("video");
       video.classList.add("form__video");
       const imgSrc = img.getAttribute("src");
-      const videoName = imgSrc.replace(".png", ".mp4").replace("team", "video");
+      const videoName = imgSrc
+        .replace(".webp", ".mp4")
+        .replace("team", "video");
       video.src = videoName;
       video.playsInline = true;
       video.loop = false;

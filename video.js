@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
           currentVideo.video,
           currentVideo.img,
           currentVideo.icon,
-          currentVideo.container
+          currentVideo.container,
         );
         currentVideo = null;
       }
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Заменяем src картинки на видео
         const imgSrc = img.getAttribute("src");
         const videoName = imgSrc
-          .replace(".png", ".mp4")
+          .replace(".webp", ".mp4")
           .replace("team", "video");
         video.src = videoName;
 

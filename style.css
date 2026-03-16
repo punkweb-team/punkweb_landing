@@ -103,7 +103,7 @@ h3 {
 }
 
 .header__tg-btn:hover .cls-1 {
-  stroke: #fff;
+  fill: #fff;
 }
 
 @media (max-width: 1080px) {
@@ -1279,6 +1279,7 @@ html:has(.menu__open) {
   align-items: center;
 }
 .serv__img {
+  display: block;
   width: 416px;
   height: 416px;
   border-radius: 50%;
@@ -1405,7 +1406,7 @@ html:has(.menu__open) {
 
 .team {
   padding: 240px 0;
-  background-image: url(./img/team-gradient1.png);
+  background-image: url(./img/team-gradient1.webp);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: 0% 0%;
@@ -1736,7 +1737,7 @@ html:has(.menu__open) {
 /* ------------ */
 .rewies {
   padding-bottom: 286px;
-  background-image: url(./img/rewiews-gradient1.png);
+  background-image: url(./img/rewiews-gradient1.webp);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: 0% 64%;
@@ -2015,6 +2016,10 @@ html:has(.menu__open) {
   height: 100%;
 }
 
+.form-tg-btn svg {
+  position: relative;
+  right: 1px;
+}
 .form-tg-btn:hover {
   background: #0f3028;
 }
